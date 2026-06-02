@@ -4,31 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paletamanía | Paletas Artesanales</title>
-    <!-- Vinculamos tu archivo de estilos personalizado -->
     <link rel="stylesheet" href="css/estilo.css">
-    <!-- Cargamos una fuente bonita desde Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome para las redes sociales y detalles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- Barra de Navegación -->
     <header>
-        <div class="logo">Paletamanía</div>
+        <div class="logo">Paleta<span>manía</span></div>
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#historias">Creamos Historias</a>
             <a href="#delicias">Nuestras Delicias</a>
+            <a href="#nosotros">Sobre Nosotros</a>
         </nav>
     </header>
 
     <!-- Sección Principal (Hero) -->
     <section id="inicio" class="hero">
-        <h1>Descubre Nuestros Sabores</h1>
-        <p>Donde la frescura y la creatividad se unen.</p>
-        <a href="#delicias" class="btn">Ver Catálogo</a>
+        <div class="hero-text">
+            <h1>Donde la frescura y la <br>creatividad se unen</h1>
+            <p>Descubre una nueva forma de disfrutar tus momentos con paletas artesanales hechas a medida, llenas de colores vibrantes y los mejores ingredientes.</p>
+            <a href="#delicias" class="btn-principal">Explorar Sabores</a>
+        </div>
     </section>
 
-    <!-- Vinculamos tu archivo de JavaScript -->
-    <script src="js/app.js"></script>
+    <!-- Sección Creamos Historias (Beneficios) -->
+    <section id="historias" class="beneficios">
+        <h2>Creamos Historias</h2>
+        <p class="subtitulo">¿Por qué elegir Paletamanía?</p>
+        <div class="contenedor-tarjetas">
+            <div class="tarjeta-beneficio">
+                <i class="fa-solid fa-palette"></i>
+                <h3>Colores Vibrantes</h3>
+                <p>Diseños únicos y llamativos que entran por los ojos antes de conquistar tu paladar.</p>
+            </div>
+            <div class="tarjeta-beneficio">
+                <i class="fa-solid fa-leaf"></i>
+                <h3>Los mejores ingredientes</h3>
+                <p>Frutas frescas seleccionadas minuciosamente para garantizar un sabor natural e inigualable.</p>
+            </div>
+            <div class="tarjeta-beneficio">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h3>Hechas a medida</h3>
+                <p>Personalizamos tus pedidos para eventos especiales en Santa Ana. ¡Tu imaginación es el límite!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nuestras Delicias (Catálogo) -->
+    <section id="delicias" class="catalogo">
+        <h2>Nuestras Delicias</h2>
+        <p class="subtitulo">Un vistazo a nuestras creaciones artesanales</p>
+        
+        <div class="contenedor-sabores">
+            <!-- Sabor 1 -->
+            <div class="sabor-card">
+                <div class="sabor-img-placeholder" style="background: #ffcbd7;">🍓</div>
+                <div class="sabor-info">
+                    <h3>Explosión de Fresa</h3>
+                    <p>Fresa natural premium con un toque secreto de la casa.</p>
+                </div>
+            </div>
+            <!-- Sabor 2 -->
+            <div class="sabor-card">
+                <div class="sabor-img-placeholder" style="background: #ffe5a3;">🥭</div>
+                <div class="sabor-info">
+                    <h3>Mango Tropical</h3>
+                    <p>Puro mango fresco de temporada con un toque cítrico refrescante.</p>
+                </div>
+            </div>
+            <!-- Sabor 3 -->
+            <div class="sabor-card">
+                <div class="sabor-img-placeholder" style="background: #e2f0cb;">💻</div>
+                <div class="sabor-info">
+                    <h3>Especial de la Casa</h3>
+                    <p>Una combinación cremosa e innovadora creada por nuestro equipo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros (Universidad / Origen) -->
+    <section id="nosotros" class="sobre-nosotros">
+        <div class="nosotros-contenido">
+            <h2>Nuestra Historia</h2>
+            <p>Nacidos con orgullo en el Centro Regional de Santa Ana de la Universidad Modular Abierta. Somos un equipo multidisciplinario que une la Administración, el Mercadeo, la Informática y la Contabilidad para revolucionar el concepto de las paletas artesanales en El Salvador.</p>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2026 Paletamanía. Creado con orgullo en Santa Ana, El Salvador.</p>
+        <div class="redes">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+    </footer>
+
 </body>
 </html>
