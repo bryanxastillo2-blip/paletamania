@@ -205,27 +205,33 @@ h2 {
     font-size: 14px;
 }
 
-/* --- Sección Catálogo (Nuestras Delicias) --- */
+/* --- Sección Catálogo (Nuestras Delicias - CORREGIDO) --- */
 .catalogo {
     padding: 80px 10%;
 }
 
+/* Corregido el nombre exacto de la clase para activar las columnas */
 .contenedor-sabores {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    margin-top: 40px;
 }
 
 .sabor-card {
     background: #ffffff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-    transition: transform 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
 }
 
 .sabor-card:hover {
     transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(255, 71, 126, 0.1);
 }
 
 .sabor-img-placeholder {
@@ -234,22 +240,26 @@ h2 {
     align-items: center;
     justify-content: center;
     font-size: 64px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .sabor-info {
     padding: 25px;
+    text-align: center; /* Centra los textos dentro de la tarjeta */
 }
 
 .sabor-info h3 {
-    font-size: 18px;
+    font-size: 20px;
+    color: var(--texto);
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .sabor-info p {
     color: var(--texto-suave);
     font-size: 14px;
+    line-height: 1.5;
 }
-
 /* --- Sección Sobre Nosotros (Texto Izquierda, Foto Derecha e Imagen de Fondo) --- */
 .sobre-nosotros {
     padding: 100px 10%;
