@@ -14,19 +14,9 @@
 
     <!-- Barra de Navegación -->
     <header>
-        <div class="logo">Paleta<span>manía</span></div>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#historias">Creamos Historias</a>
-            <a href="#delicias">Nuestras Delicias</a>
-            <a href="#nosotros">Sobre Nosotros</a>
-        </nav>
-    </header>
-
-    <header>
         <!-- Contenedor del Logo + Texto juntos -->
         <div class="logo-contenedor">
-            <img src="img/Logo_Helados_y_Paletas_Divertido_Circular_Amarillo__1_-removebg-preview.png" alt="Paletamanía Logo" class="logo-img">
+            <img src="img/logo.png" alt="Paletamanía Logo" class="logo-img">
             <span class="logo-texto">Paleta<span>manía</span></span>
         </div>
         
@@ -105,9 +95,16 @@
 
     <!-- Sección Sobre Nosotros (Universidad / Origen) -->
     <section id="nosotros" class="sobre-nosotros">
-        <div class="nosotros-contenido">
-            <h2>Nuestra Historia</h2>
-            <p>Nacidos con orgullo en el Centro Regional de Santa Ana de la Universidad Modular Abierta. Somos un equipo multidisciplinario que une la Administración, el Mercadeo, la Informática y la Contabilidad para revolucionar el concepto de las paletas artesanales en El Salvador.</p>
+        <div class="nosotros-contenedor-flex">
+            <div class="nosotros-contenido">
+                <h2>Nuestra Historia</h2>
+                <p class="subtitulo-izq">Proyecto Multidisciplinario</p>
+                <p>Nacidos con orgullo en el Centro Regional de Santa Ana de la Universidad Modular Abierta. Somos un equipo multidisciplinario que une la Administración, el Mercadeo, la Informática y la Contabilidad para revolucionar el concepto de las paletas artesanales en El Salvador.</p>
+            </div>
+            <div class="nosotros-imagen">
+                <!-- Foto de tu equipo multidisciplinario -->
+                <img src="img/equipo.jpg" alt="Equipo Paletamanía" class="foto-equipo">
+            </div>
         </div>
     </section>
 
@@ -121,5 +118,7 @@
         </div>
     </footer>
 
+    <!-- Vinculamos tu archivo de JavaScript -->
+    <script src="js/app.js"></script>
 </body>
 </html>
