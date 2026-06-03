@@ -163,6 +163,7 @@ h2 {
 }
 
 /* --- Sección Beneficios (Creamos Historias) --- */
+/* --- Sección Beneficios (Creamos Historias - Con Imágenes) --- */
 .beneficios {
     padding: 80px 10%;
     background-color: #ffffff;
@@ -181,6 +182,9 @@ h2 {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(255, 71, 126, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
 }
 
 .tarjeta-beneficio:hover {
@@ -188,21 +192,36 @@ h2 {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
 
-.tarjeta-beneficio i {
-    font-size: 40px;
-    color: var(--principal);
+/* Contenedor circular para la imagen del beneficio */
+.beneficio-img-wrapper {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%; /* Lo hace perfectamente circular */
+    overflow: hidden;
     margin-bottom: 20px;
+    border: 3px solid var(--secundario); /* Borde rosa suave decorativo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo interno de la foto */
+.beneficio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta y adapta la foto al círculo sin deformarla */
+    display: block;
 }
 
 .tarjeta-beneficio h3 {
     font-size: 20px;
     margin-bottom: 15px;
     color: var(--texto);
+    font-weight: 700;
 }
 
 .tarjeta-beneficio p {
     color: var(--texto-suave);
     font-size: 14px;
+    line-height: 1.6;
 }
 
 /* --- Sección Catálogo (Nuestras Delicias - CORREGIDO) --- */
