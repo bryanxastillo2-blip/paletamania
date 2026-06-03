@@ -1,11 +1,13 @@
-/* --- Variables de Color y Reset --- */
+/* --- Variables de Color y Reset (Inspirado en Logo Helados y Paletas Divertido Circular Amarillo (2).png) --- */
 :root {
-    --principal: #ff477e;
-    --principal-oscuro: #ff1453;
-    --secundario: #ffccd5;
-    --fondo: #fffdf9;
-    --texto: #2b2d42;
-    --texto-suave: #6c757d;
+    --principal: #00bcac;         /* Turquesa/Cian vibrante del logo */
+    --principal-oscuro: #009689;  /* Turquesa oscuro para efectos hover */
+    --secundario: #ffcc00;        /* Amarillo sol brillante */
+    --acentos: #ff7f50;           /* Coral/Salmón del palito de la paleta */
+    --fondo: #fff0db;             /* Crema suave para el fondo general */
+    --tarjetas-bg: #ffffff;       /* Blanco puro para los contenedores */
+    --texto: #1f3a38;             /* Contraste oscuro basado en el verde azulado */
+    --texto-suave: #526b68;       /* Tono intermedio para descripciones largas */
 }
 
 * {
@@ -28,11 +30,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    background-color: #ffffff;
+    background-color: var(--tarjetas-bg);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 20px rgba(31, 58, 56, 0.05);
 }
 
 /* Contenedor del Logo + Texto alineados */
@@ -80,7 +82,7 @@ header nav a:hover {
     justify-content: center;
     text-align: center;
     padding: 0 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/paleta1.jpeg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../img/paleta1.jpeg') no-repeat center center/cover;
 }
 
 .hero-content-centered {
@@ -92,10 +94,10 @@ header nav a:hover {
 }
 
 .hero-logo-center {
-    height: 100px;
+    height: 130px; /* Incrementado ligeramente para lucir los detalles del nuevo círculo */
     width: auto;
     margin-bottom: 25px;
-    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.4));
 }
 
 .hero h1 {
@@ -104,32 +106,33 @@ header nav a:hover {
     line-height: 1.2;
     color: #ffffff;
     margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .hero p {
     font-size: 19px;
-    color: #f1f1f1;
+    color: #f5f5f5;
     margin-bottom: 35px;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 }
 
 .btn-principal {
     display: inline-block;
     padding: 14px 35px;
-    background-color: var(--principal);
-    color: white;
+    background-color: var(--secundario); /* El amarillo del logo resalta excelentemente como botón de acción */
+    color: var(--texto);
     text-decoration: none;
     border-radius: 30px;
-    font-weight: 600;
-    box-shadow: 0 5px 20px rgba(255, 71, 126, 0.3);
+    font-weight: 700;
+    box-shadow: 0 5px 20px rgba(255, 204, 0, 0.35);
     transition: all 0.3s ease;
 }
 
 .btn-principal:hover {
-    background-color: var(--principal-oscuro);
+    background-color: var(--principal);
+    color: #ffffff;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 71, 126, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 188, 172, 0.4);
 }
 
 /* Animación para el Hero */
@@ -150,6 +153,7 @@ h2 {
     font-size: 36px;
     color: var(--texto);
     margin-bottom: 5px;
+    font-weight: 700;
 }
 
 .subtitulo {
@@ -162,11 +166,10 @@ h2 {
     margin-bottom: 50px;
 }
 
-/* --- Sección Beneficios (Creamos Historias) --- */
 /* --- Sección Beneficios (Creamos Historias - Con Imágenes) --- */
 .beneficios {
     padding: 80px 10%;
-    background-color: #ffffff;
+    background-color: var(--tarjetas-bg);
 }
 
 .contenedor-tarjetas {
@@ -181,25 +184,25 @@ h2 {
     border-radius: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 71, 126, 0.05);
+    border: 1px solid rgba(0, 188, 172, 0.08);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra el contenido horizontalmente */
+    align-items: center;
 }
 
 .tarjeta-beneficio:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 35px rgba(31, 58, 56, 0.08);
 }
 
 /* Contenedor circular para la imagen del beneficio */
 .beneficio-img-wrapper {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%; /* Lo hace perfectamente circular */
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
-    border: 3px solid var(--secundario); /* Borde rosa suave decorativo */
+    border: 3px solid var(--secundario); /* Enmarcado con el amarillo sol del logo */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -207,7 +210,7 @@ h2 {
 .beneficio-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorta y adapta la foto al círculo sin deformarla */
+    object-fit: cover;
     display: block;
 }
 
@@ -224,12 +227,11 @@ h2 {
     line-height: 1.6;
 }
 
-/* --- Sección Catálogo (Nuestras Delicias - CORREGIDO) --- */
+/* --- Sección Catálogo (Nuestras Delicias) --- */
 .catalogo {
     padding: 80px 10%;
 }
 
-/* Corregido el nombre exacto de la clase para activar las columnas */
 .contenedor-sabores {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -238,10 +240,10 @@ h2 {
 }
 
 .sabor-card {
-    background: #ffffff;
+    background: var(--tarjetas-bg);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.02);
     display: flex;
@@ -250,7 +252,7 @@ h2 {
 
 .sabor-card:hover {
     transform: scale(1.03);
-    box-shadow: 0 10px 25px rgba(255, 71, 126, 0.1);
+    box-shadow: 0 12px 30px rgba(0, 188, 172, 0.15);
 }
 
 .sabor-img-placeholder {
@@ -264,7 +266,7 @@ h2 {
 
 .sabor-info {
     padding: 25px;
-    text-align: center; /* Centra los textos dentro de la tarjeta */
+    text-align: center;
 }
 
 .sabor-info h3 {
@@ -279,12 +281,14 @@ h2 {
     font-size: 14px;
     line-height: 1.5;
 }
+
 /* --- Sección Sobre Nosotros (Texto Izquierda, Foto Derecha e Imagen de Fondo) --- */
 .sobre-nosotros {
     padding: 100px 10%;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../img/grupo.png') no-repeat center center/cover;
+    /* Ajustado el fondo translúcido a crema para encajar con el branding */
+    background: linear-gradient(rgba(255, 240, 219, 0.9), rgba(255, 240, 219, 0.9)), url('../img/grupo.png') no-repeat center center/cover;
 }
 
 .nosotros-contenedor-flex {
@@ -340,17 +344,17 @@ h2 {
     display: flex;
     align-items: center;
     gap: 12px;
-    background-color: #ffffff;
+    background-color: var(--tarjetas-bg);
     padding: 14px 20px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 71, 126, 0.08);
+    border: 1px solid rgba(0, 188, 172, 0.1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
     transition: all 0.3s ease;
 }
 
 .disciplina-tag:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(255, 71, 126, 0.12);
+    box-shadow: 0 5px 15px rgba(0, 188, 172, 0.15);
     border-color: var(--principal);
 }
 
@@ -393,7 +397,7 @@ h2 {
     border-radius: 24px;
     position: relative;
     z-index: 2;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 15px 35px rgba(31, 58, 56, 0.1);
     transition: transform 0.4s ease;
 }
 
@@ -403,7 +407,7 @@ h2 {
 
 /* --- Footer --- */
 footer {
-    background-color: var(--texto);
+    background-color: var(--texto); /* Fondo ultra oscuro sofisticado */
     color: #ffffff;
     text-align: center;
     padding: 40px 10%;
@@ -411,7 +415,7 @@ footer {
 
 footer p {
     font-size: 14px;
-    color: #b5b6ca;
+    color: #a3bdb9;
     margin-bottom: 20px;
 }
 
@@ -419,11 +423,13 @@ footer .redes a {
     color: #ffffff;
     font-size: 20px;
     margin: 0 10px;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 footer .redes a:hover {
-    color: var(--principal);
+    color: var(--secundario);
+    transform: scale(1.2);
 }
 
 /* --- Adaptabilidad Móvil (Responsive) --- */
@@ -450,7 +456,7 @@ footer .redes a:hover {
         font-size: 16px;
     }
     .hero-logo-center {
-        height: 80px;
+        height: 100px;
     }
     .nosotros-contenedor-flex {
         flex-direction: column-reverse;
