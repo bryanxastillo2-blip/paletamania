@@ -35,13 +35,27 @@ header {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
-header .logo {
+/* Contenedor del Logo + Texto alineados */
+.logo-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+.logo-texto {
     font-size: 26px;
     font-weight: 700;
     color: var(--texto);
+    letter-spacing: -0.5px;
 }
 
-header .logo span {
+.logo-texto span {
     color: var(--principal);
 }
 
@@ -211,22 +225,46 @@ h2 {
     font-size: 14px;
 }
 
-/* --- Sección Sobre Nosotros --- */
+/* --- Sección Sobre Nosotros (Dos Columnas) --- */
 .sobre-nosotros {
     padding: 80px 10%;
     background: linear-gradient(rgba(255, 71, 126, 0.03), rgba(255, 71, 126, 0.03)), #ffffff;
-    text-align: center;
+}
+
+.nosotros-contenedor-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
 }
 
 .nosotros-contenido {
-    max-width: 800px;
-    margin: 0 auto;
+    flex: 1;
 }
 
-.sobre-nosotros p {
-    font-size: 16px;
-    color: var(--texto-suave);
-    margin-top: 20px;
+.subtitulo-izq {
+    color: var(--principal);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.nosotros-imagen {
+    flex: 1;
+}
+
+.foto-equipo {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 5px solid #ffffff;
 }
 
 /* --- Footer --- */
@@ -275,5 +313,13 @@ footer .redes a:hover {
     }
     .hero h1 {
         font-size: 32px;
+    }
+    .nosotros-contenedor-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .foto-equipo {
+        max-height: 300px;
     }
 }
