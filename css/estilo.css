@@ -205,147 +205,148 @@ h2 {
     font-size: 14px;
 }
 
-/* --- Sección Catálogo (Nuestras Delicias) --- */
-.catalogo {
-    padding: 80px 10%;
-}
-
-.contenedor-sabores {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.sabor-card {
-    background: #ffffff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-    transition: transform 0.3s ease;
-}
-
-.sabor-card:hover {
-    transform: scale(1.03);
-}
-
-.sabor-img-placeholder {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 64px;
-}
-
-.sabor-info {
-    padding: 25px;
-}
-
-.sabor-info h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.sabor-info p {
-    color: var(--texto-suave);
-    font-size: 14px;
-}
-
-/* --- Sección Sobre Nosotros (Dos Columnas) --- */
+/* --- Sección Sobre Nosotros (Optimizado y Moderno) --- */
 .sobre-nosotros {
-    padding: 80px 10%;
-    background: linear-gradient(rgba(255, 71, 126, 0.03), rgba(255, 71, 126, 0.03)), #ffffff;
+    padding: 100px 10%;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
 }
 
 .nosotros-contenedor-flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
-    max-width: 1100px;
+    gap: 60px;
+    max-width: 1200px;
     margin: 0 auto;
-    text-align: left;
 }
 
 .nosotros-contenido {
-    flex: 1;
+    flex: 1.1;
+    text-align: left;
 }
 
 .subtitulo-izq {
     color: var(--principal);
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 700;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    display: inline-block;
 }
 
-.nosotros-imagen {
-    flex: 1;
+.nosotros-contenido h2 {
+    text-align: left;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--texto);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.descripcion-nosotros {
+    color: var(--texto-suave);
+    font-size: 16px;
+    margin-bottom: 30px;
+    /* Da un aire más limpio al párrafo */
+    text-align: justify; 
+}
+
+/* Rejilla para las etiquetas de disciplinas */
+.disciplinas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.disciplina-tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--fondo);
+    padding: 14px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 71, 126, 0.08);
+    transition: all 0.3s ease;
+}
+
+.disciplina-tag:hover {
+    transform: translateX(5px);
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(255, 71, 126, 0.08);
+    border-color: var(--principal);
+}
+
+.disciplina-tag i {
+    font-size: 18px;
+    color: var(--principal);
+}
+
+.disciplina-tag span {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--texto);
+}
+
+/* Contenedor de la Imagen con efectos visuales */
+.nosotros-imagen-wrapper {
+    flex: 0.9;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cuadrado decorativo detrás de la foto */
+.decoracion-fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secundario);
+    border-radius: 24px;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+    opacity: 0.4;
 }
 
 .foto-equipo {
     width: 100%;
-    max-height: 400px;
+    max-height: 420px;
     object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 5px solid #ffffff;
+    border-radius: 24px;
+    position: relative;
+    z-index: 2; /* Se posiciona sobre el cuadro decorativo */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    transition: transform 0.4s ease;
 }
 
-/* --- Footer --- */
-footer {
-    background-color: var(--texto);
-    color: #ffffff;
-    text-align: center;
-    padding: 40px 10%;
+.nosotros-imagen-wrapper:hover .foto-equipo {
+    transform: translateY(-5px);
 }
 
-footer p {
-    font-size: 14px;
-    color: #b5b6ca;
-    margin-bottom: 20px;
-}
-
-footer .redes a {
-    color: #ffffff;
-    font-size: 20px;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-footer .redes a:hover {
-    color: var(--principal);
-}
-
-/* --- Adaptabilidad Móvil (Responsive) --- */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-    }
-    header nav {
-        margin-top: 15px;
-    }
-    header nav a {
-        margin: 0 10px;
-        font-size: 14px;
-    }
-    .hero {
-        height: auto;
-        padding: 100px 20px;
-    }
-    .hero h1 {
-        font-size: 36px;
-    }
-    .hero p {
-        font-size: 16px;
+/* --- Adaptabilidad para Celulares --- */
+@media (max-width: 992px) {
+    .sobre-nosotros {
+        padding: 70px 5%;
     }
     .nosotros-contenedor-flex {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
+        flex-direction: column-reverse; /* La foto baja para priorizar el texto en el celular */
+        gap: 40px;
     }
-    .foto-equipo {
-        max-height: 300px;
+    .nosotros-contenido h2 {
+        text-align: center;
+    }
+    .subtitulo-izq {
+        display: block;
+        text-align: center;
+    }
+    .disciplinas-grid {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas chicas */
+    }
+    .decoracion-fondo {
+        display: none; /* Quitamos el adorno en móvil para evitar descuadres */
     }
 }
