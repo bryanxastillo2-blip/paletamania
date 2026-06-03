@@ -80,7 +80,7 @@ header nav a:hover {
     justify-content: center;
     text-align: center;
     padding: 0 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/fondo-hero.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/paleta1.jpeg') no-repeat center center/cover;
 }
 
 .hero-content-centered {
