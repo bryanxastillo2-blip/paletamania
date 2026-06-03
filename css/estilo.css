@@ -74,7 +74,7 @@ header nav a:hover {
 
 /* --- Sección Hero (Centrado y con Imagen de Fondo) --- */
 .hero {
-    height: 85vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center; /* Centra el contenido horizontalmente */
@@ -88,6 +88,14 @@ header nav a:hover {
 .hero-content-centered {
     max-width: 750px;
     animation: fadeInUp 1s ease-out; /* Animación suave de entrada */
+}
+
+/* Nuevo estilo para el logo del centro */
+.hero-logo-center {
+    height: 100px; /* Tamaño ideal para que destaque sin saturar */
+    width: auto;
+    margin-bottom: 25px; /* Despega el logo del título */
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.3)); /* Sombra suave para que resalte sobre el fondo */
 }
 
 .hero h1 {
