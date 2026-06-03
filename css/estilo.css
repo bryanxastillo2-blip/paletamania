@@ -205,12 +205,14 @@ h2 {
     font-size: 14px;
 }
 
-/* --- Sección Sobre Nosotros (Optimizado y Moderno) --- */
+/* --- Sección Sobre Nosotros (Texto Izquierda, Foto Derecha e Imagen de Fondo) --- */
 .sobre-nosotros {
     padding: 100px 10%;
-    background-color: #ffffff;
     position: relative;
     overflow: hidden;
+    
+    /* Imagen de fondo para toda la sección con capa clara encima para legibilidad */
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../img/fondo-nosotros.jpg') no-repeat center center/cover;
 }
 
 .nosotros-contenedor-flex {
@@ -222,9 +224,10 @@ h2 {
     margin: 0 auto;
 }
 
+/* Alineación total a la izquierda para el bloque de contenido */
 .nosotros-contenido {
     flex: 1.1;
-    text-align: left;
+    text-align: left; /* Todo el texto alineado a la izquierda */
 }
 
 .subtitulo-izq {
@@ -234,11 +237,12 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 8px;
-    display: inline-block;
+    display: block;
+    text-align: left; /* Fuerza la alineación izquierda */
 }
 
 .nosotros-contenido h2 {
-    text-align: left;
+    text-align: left; /* Título a la izquierda */
     font-size: 40px;
     font-weight: 700;
     color: var(--texto);
@@ -250,8 +254,7 @@ h2 {
     color: var(--texto-suave);
     font-size: 16px;
     margin-bottom: 30px;
-    /* Da un aire más limpio al párrafo */
-    text-align: justify; 
+    text-align: left; /* Párrafo alineado a la izquierda */
 }
 
 /* Rejilla para las etiquetas de disciplinas */
@@ -259,23 +262,24 @@ h2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    justify-content: start; /* Mantiene la rejilla pegada a la izquierda */
 }
 
 .disciplina-tag {
     display: flex;
     align-items: center;
     gap: 12px;
-    background-color: var(--fondo);
+    background-color: #ffffff; /* Blanco sólido para resaltar sobre el fondo de la sección */
     padding: 14px 20px;
     border-radius: 12px;
     border: 1px solid rgba(255, 71, 126, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
     transition: all 0.3s ease;
 }
 
 .disciplina-tag:hover {
     transform: translateX(5px);
-    background-color: #ffffff;
-    box-shadow: 0 5px 15px rgba(255, 71, 126, 0.08);
+    box-shadow: 0 5px 15px rgba(255, 71, 126, 0.12);
     border-color: var(--principal);
 }
 
@@ -290,7 +294,7 @@ h2 {
     color: var(--texto);
 }
 
-/* Contenedor de la Imagen con efectos visuales */
+/* Contenedor de la Imagen a la Derecha */
 .nosotros-imagen-wrapper {
     flex: 0.9;
     position: relative;
@@ -318,7 +322,7 @@ h2 {
     object-fit: cover;
     border-radius: 24px;
     position: relative;
-    z-index: 2; /* Se posiciona sobre el cuadro decorativo */
+    z-index: 2;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
     transition: transform 0.4s ease;
 }
@@ -333,20 +337,18 @@ h2 {
         padding: 70px 5%;
     }
     .nosotros-contenedor-flex {
-        flex-direction: column-reverse; /* La foto baja para priorizar el texto en el celular */
+        flex-direction: column-reverse; /* En móvil, la foto se acomoda abajo del texto ordenadamente */
         gap: 40px;
     }
-    .nosotros-contenido h2 {
-        text-align: center;
-    }
-    .subtitulo-izq {
-        display: block;
-        text-align: center;
+    .nosotros-contenido h2,
+    .subtitulo-izq,
+    .descripcion-nosotros {
+        text-align: center; /* Se centra en móviles para mejorar la experiencia de lectura táctil */
     }
     .disciplinas-grid {
-        grid-template-columns: 1fr; /* Una sola columna en pantallas chicas */
+        grid-template-columns: 1fr; /* Una sola columna en celulares */
     }
     .decoracion-fondo {
-        display: none; /* Quitamos el adorno en móvil para evitar descuadres */
+        display: none;
     }
 }
