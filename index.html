@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- ==================== METADATOS DEL DOCUMENTO ==================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paletamanía | Paletas Artesanales</title>
     
+    <!-- ==================== ARCHIVOS CSS ==================== -->
+    <!-- CSS personalizado del proyecto -->
     <link rel="stylesheet" href="css/estilo.css">
     
+    <!-- Font Awesome (iconos) - CDN externo -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Fuente Poppins de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- ==================== HEADER / BARRA DE NAVEGACIÓN ==================== -->
+    <!-- Contiene el logo y los enlaces principales del sitio -->
     <header>
+        <!-- Bloque del logo -->
         <div class="logo-contenedor">
             <img src="img/Logo_Helados_y_Paletas_Divertido_Circular_Amarillo__1_-removebg-preview.png" alt="Paletamanía Logo Mini" class="logo-img">
             <span class="logo-texto">Paleta<span>manía</span></span>
         </div>
         
+        <!-- Menú de navegación (anclas a secciones internas) -->
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#historias">Creamos Historias</a>
@@ -27,34 +36,45 @@
         </nav>
     </header>
 
+    <!-- ==================== SECCIÓN HERO (INICIO) ==================== -->
+    <!-- Sección principal de bienvenida, con llamado a la acción -->
     <section id="inicio" class="hero">
         <div class="hero-content-centered">
+            <!-- Logo central grande -->
             <img src="img/Logo_Helados_y_Paletas_Divertido_Circular_Amarillo__1_-removebg-preview.png" alt="Paletamanía Logo Central" class="hero-logo-center">
             
+            <!-- Título principal y descripción -->
             <h1>Donde la frescura y la <br>creatividad se unen</h1>
             <p>Descubre una nueva forma de disfrutar tus momentos con paletas artesanales hechas a medida, llenas de colores vibrantes y los mejores ingredientes.</p>
             
+            <!-- Botón que lleva a la sección de sabores -->
             <a href="#delicias" class="btn-principal">Explorar Sabores</a>
         </div>
     </section>
 
+    <!-- ==================== SECCIÓN "CREAMOS HISTORIAS" (BENEFICIOS) ==================== -->
+    <!-- Muestra las ventajas del producto mediante tarjetas con íconos -->
     <section id="historias" class="beneficios">
         <h2>Creamos Historias</h2>
         <p class="subtitulo">¿Por qué elegir Paletamanía?</p>
         
+        <!-- Contenedor de las 3 tarjetas de beneficios -->
         <div class="contenedor-tarjetas">
+            <!-- Tarjeta 1: Colores vibrantes -->
             <div class="tarjeta-beneficio">
                 <i class="fa-solid fa-palette"></i>
                 <h3>Colores Vibrantes</h3>
                 <p>Diseños únicos y llamativos que entran por los ojos antes de conquistar tu paladar.</p>
             </div>
             
+            <!-- Tarjeta 2: Ingredientes naturales -->
             <div class="tarjeta-beneficio">
                 <i class="fa-solid fa-leaf"></i>
                 <h3>Los mejores ingredientes</h3>
                 <p>Frutas frescas seleccionadas minuciosamente para garantizar un sabor natural e inigualable.</p>
             </div>
             
+            <!-- Tarjeta 3: Personalización -->
             <div class="tarjeta-beneficio">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <h3>Hechas a medida</h3>
@@ -63,11 +83,15 @@
         </div>
     </section>
 
+    <!-- ==================== SECCIÓN "NUESTRAS DELICIAS" (CATÁLOGO) ==================== -->
+    <!-- Muestra una muestra de los sabores disponibles -->
     <section id="delicias" class="catalogo">
         <h2>Nuestras Delicias</h2>
         <p class="subtitulo">Un vistazo a nuestras creaciones artesanales</p>
         
+        <!-- Contenedor de tarjetas de sabores -->
         <div class="contenedor-sabores">
+            <!-- Sabor 1: Fresa -->
             <div class="sabor-card">
                 <div class="sabor-img-placeholder" style="background: #ffcbd7;">🍓</div>
                 <div class="sabor-info">
@@ -76,6 +100,7 @@
                 </div>
             </div>
             
+            <!-- Sabor 2: Mango -->
             <div class="sabor-card">
                 <div class="sabor-img-placeholder" style="background: #ffe5a3;">🥭</div>
                 <div class="sabor-info">
@@ -84,6 +109,7 @@
                 </div>
             </div>
             
+            <!-- Sabor 3: Especial de la casa -->
             <div class="sabor-card">
                 <div class="sabor-img-placeholder" style="background: #e2f0cb;">💻</div>
                 <div class="sabor-info">
@@ -94,9 +120,12 @@
         </div>
     </section>
 
+    <!-- ==================== SECCIÓN "SOBRE NOSOTROS" (EQUIPO Y PROYECTO) ==================== -->
+    <!-- Explica el origen multidisciplinario del proyecto -->
     <section id="nosotros" class="sobre-nosotros">
         <div class="nosotros-contenedor-flex">
             
+            <!-- Columna izquierda: texto descriptivo -->
             <div class="nosotros-contenido">
                 <p class="subtitulo-izq">Proyecto Multidisciplinario</p>
                 <h2>Nuestra Historia</h2>
@@ -106,6 +135,7 @@
                     fusionando cuatro pilares fundamentales:
                 </p>
                 
+                <!-- Grid con las 4 disciplinas involucradas -->
                 <div class="disciplinas-grid">
                     <div class="disciplina-tag">
                         <i class="fa-solid fa-laptop-code"></i>
@@ -126,6 +156,7 @@
                 </div>
             </div>
             
+            <!-- Columna derecha: imagen del equipo con decoración -->
             <div class="nosotros-imagen-wrapper">
                 <div class="decoracion-fondo"></div>
                 <img src="img/grupo.png" alt="Equipo Paletamanía" class="foto-equipo">
@@ -134,9 +165,12 @@
         </div>
     </section>
 
+    <!-- ==================== FOOTER / PIE DE PÁGINA ==================== -->
+    <!-- Contiene derechos de autor y enlaces a redes sociales -->
     <footer>
         <p>&copy; 2026 Paletamanía. Creado con orgullo en Santa Ana, El Salvador.</p>
         
+        <!-- Iconos de redes sociales (aún sin enlaces reales) -->
         <div class="redes">
             <a href="#"><i class="fa-brands fa-facebook"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -144,6 +178,8 @@
         </div>
     </footer>
 
+    <!-- ==================== ARCHIVO JAVASCRIPT ==================== -->
+    <!-- Comportamiento dinámico del sitio (scroll suave, interacciones, etc.) -->
     <script src="js/app.js"></script>
 </body>
 </html>
