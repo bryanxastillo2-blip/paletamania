@@ -72,33 +72,38 @@ header nav a:hover {
     color: var(--principal);
 }
 
-/* --- Sección Hero --- */
+/* --- Sección Hero (Centrado y con Imagen de Fondo) --- */
 .hero {
     height: 85vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 0 10%;
-    background: linear-gradient(135deg, #ffe3e3 0%, #fff2cc 100%);
-    text-align: left;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    text-align: center;      /* Centra todo el texto */
+    padding: 0 20px;
+    
+    /* Imagen de fondo con capa oscura superpuesta para legibilidad */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/fondo-hero.jpg') no-repeat center center/cover;
 }
 
-.hero-text {
-    max-width: 600px;
+.hero-content-centered {
+    max-width: 750px;
+    animation: fadeInUp 1s ease-out; /* Animación suave de entrada */
 }
 
 .hero h1 {
-    font-size: 46px;
+    font-size: 52px;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--texto);
+    color: #ffffff; /* Texto blanco para contrastar con el fondo */
     margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para resaltar las letras */
 }
 
 .hero p {
-    font-size: 17px;
-    color: var(--texto-suave);
+    font-size: 19px;
+    color: #f1f1f1; /* Blanco suave */
     margin-bottom: 35px;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .btn-principal {
@@ -117,6 +122,18 @@ header nav a:hover {
     background-color: var(--principal-oscuro);
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(255, 71, 126, 0.4);
+}
+
+/* Animación para el Hero */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- Títulos Globales --- */
@@ -306,13 +323,14 @@ footer .redes a:hover {
         font-size: 14px;
     }
     .hero {
-        text-align: center;
-        justify-content: center;
         height: auto;
-        padding: 80px 20px;
+        padding: 100px 20px;
     }
     .hero h1 {
-        font-size: 32px;
+        font-size: 36px;
+    }
+    .hero p {
+        font-size: 16px;
     }
     .nosotros-contenedor-flex {
         flex-direction: column;
