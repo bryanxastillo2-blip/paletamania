@@ -474,32 +474,44 @@ footer .redes a:hover {
         display: none;
     }
 
-    /* --- Botón Conocer Más (Sección Nosotros) --- */
+/* --- Contenedor y Botón Conocer Más (Sección Nosotros) --- */
+.contenedor-btn-nosotros {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    width: 100%;
+    margin: 25px 0 40px 0;   /* Separa el botón del texto superior y de las disciplinas inferiores */
+}
+
 .btn-conocer-mas {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 28px;
-    background-color: transparent;
-    color: var(--principal);
-    border: 2px solid var(--principal);
+    gap: 12px;
+    padding: 14px 35px;
+    background-color: var(--principal); /* Fondo turquesa del logo */
+    color: #ffffff;                    /* Texto blanco para resaltar */
     text-decoration: none;
     border-radius: 30px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 15px;
-    margin-bottom: 35px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 20px rgba(0, 188, 172, 0.25);
     transition: all 0.3s ease;
+    border: none;
 }
 
 .btn-conocer-mas:hover {
-    background-color: var(--principal);
-    color: #ffffff;
-    transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0, 188, 172, 0.3);
+    background-color: var(--principal-oscuro);
+    transform: translateY(-3px); /* Efecto de elevación al pasar el cursor */
+    box-shadow: 0 8px 25px rgba(0, 150, 137, 0.4);
 }
 
 .btn-conocer-mas i {
     font-size: 14px;
     transition: transform 0.3s ease;
 }
+
+.btn-conocer-mas:hover i {
+    transform: translateX(4px); /* La flechita se mueve sutilmente a la derecha */
+}
+    
 }
