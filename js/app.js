@@ -1,11 +1,11 @@
 // 1. Configuración de tu proyecto de Firebase (Reemplaza estos datos con los que te dé la consola de Firebase)
 const firebaseConfig = {
-    apiKey: "TU_API_KEY_AQUÍ",
-    authDomain: "tu-proyecto.firebaseapp.com",
-    projectId: "tu-proyecto-id",
-    storageBucket: "tu-proyecto.appspot.com",
-    messagingSenderId: "tu-sender-id",
-    appId: "tu-app-id"
+   apiKey: "AIzaSyAykcwD2XfgdBS1y5Sq-zvW0_OYeXUJlME",
+  authDomain: "paletamania-7a282.firebaseapp.com",
+  projectId: "paletamania-7a282",
+  storageBucket: "paletamania-7a282.firebasestorage.app",
+  messagingSenderId: "960877546785",
+  appId: "1:960877546785:web:5e9730b13305f187768260"
 };
 
 // 2. Inicializar Firebase y Firestore (Usando los scripts cargados en el navegador)
