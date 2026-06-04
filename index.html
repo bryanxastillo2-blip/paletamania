@@ -178,6 +178,41 @@
         
     </section>
 
+    <section id="reseñas-seccion" class="reseñas-container">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <p class="subtitulo">Tu opinión nos impulsa a seguir innovando</p>
+
+        <div id="contenedor-reseñas-dinamicas" class="grid-reseñas">
+            <p class="cargando-texto">Cargando comentarios refrescantes...</p>
+        </div>
+
+        <div class="formulario-reseña-box">
+            <h3>¿Probaste nuestras paletas? ¡Déjanos tu reseña!</h3>
+            <form id="form-nueva-reseña">
+                <div class="input-grupo">
+                    <input type="text" id="reseña-nombre" placeholder="Tu nombre completo" required>
+                </div>
+                
+                <div class="input-grupo">
+                    <label for="reseña-estrellas">Calificación: </label>
+                    <select id="reseña-estrellas" required>
+                        <option value="5">⭐⭐⭐⭐⭐ (Excelentes paletas)</option>
+                        <option value="4">⭐⭐⭐⭐ (Muy buenas)</option>
+                        <option value="3">⭐⭐⭐ (Buenas)</option>
+                        <option value="2">⭐⭐ (Regulares)</option>
+                        <option value="1">⭐ (Por mejorar)</option>
+                    </select>
+                </div>
+
+                <div class="input-grupo">
+                    <textarea id="reseña-comentario" rows="4" placeholder="Cuéntanos qué sabor probaste y qué te pareció..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-principal" style="border:none; cursor:pointer; width:100%;">Publicar Reseña</button>
+            </form>
+        </div>
+    </section>
+
     <!-- ==================== FOOTER / PIE DE PÁGINA ==================== -->
     <!-- Contiene derechos de autor y enlaces a redes sociales -->
     <footer>
