@@ -51,12 +51,18 @@
             margin-bottom: 15px;
             font-weight: 700;
         }
+        
+        /* --- ESTILOS MODIFICADOS: EQUIPO EN UNA SOLA FILA --- */
         .contenedor-equipo {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
             gap: 30px;
             margin-top: 40px;
+            overflow-x: auto;
+            flex-wrap: wrap;
         }
+        
         .tarjeta-miembro {
             background-color: var(--tarjetas-bg);
             border-radius: 20px;
@@ -64,33 +70,39 @@
             text-align: center;
             border: 1px solid rgba(0, 188, 172, 0.05);
             box-shadow: 0 5px 20px rgba(0,0,0,0.01);
+            flex: 0 0 auto;
+            min-width: 200px;
+            width: calc(20% - 24px);
         }
+        
         .avatar-miembro {
-            width: 110px;          /* Lo agrandamos un poquito para que luzcan las fotos */
+            width: 110px;
             height: 110px;
             border-radius: 50%;
             background-color: var(--fondo);
             margin: 0 auto 20px auto;
-            overflow: hidden;      /* CRUCIAL: Corta la foto en forma de círculo */
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid var(--secundario); /* Mantiene el borde amarillo sol */
+            border: 3px solid var(--secundario);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         .avatar-miembro img {
             width: 100%;
             height: 100%;
-            object-fit: cover;     /* Ajusta la foto perfectamente al círculo sin distorsionarla */
+            object-fit: cover;
             display: block;
         }
+        
         .tarjeta-miembro h4 {
             font-size: 18px;
             color: var(--texto);
             margin-bottom: 5px;
             font-weight: 700;
         }
+        
         .tarjeta-miembro span {
             font-size: 13px;
             color: var(--principal);
@@ -98,6 +110,13 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        
+        @media (max-width: 1200px) {
+            .tarjeta-miembro {
+                width: calc(25% - 22.5px);
+            }
+        }
+        
         @media (max-width: 992px) {
             .bloque-historia {
                 flex-direction: column-reverse;
@@ -106,6 +125,22 @@
             .bloque-historia .nosotros-contenido h2,
             .bloque-historia .descripcion-nosotros {
                 text-align: center;
+            }
+            
+            .tarjeta-miembro {
+                width: calc(33.333% - 20px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .tarjeta-miembro {
+                width: calc(50% - 15px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .tarjeta-miembro {
+                width: 100%;
             }
         }
     </style>
@@ -176,7 +211,7 @@
 
                 <div class="tarjeta-miembro">
                     <div class="avatar-miembro">
-                       <img src="img/grupo.png" alt="Nombre Miembro 1">
+                       <img src="img/grupo.png" alt="Nombre Miembro 2">
                     </div>
                     <h4>Miembro 2</h4>
                     <span>Mercadeo</span>
@@ -184,7 +219,7 @@
 
                 <div class="tarjeta-miembro">
                     <div class="avatar-miembro">
-                        <img src="img/grupo.png" alt="Nombre Miembro 1">
+                        <img src="img/grupo.png" alt="Nombre Miembro 3">
                     </div>
                     <h4>Miembro 3</h4>
                     <span>Administración</span>
@@ -192,7 +227,7 @@
 
                 <div class="tarjeta-miembro">
                     <div class="avatar-miembro">
-                      <img src="img/grupo.png" alt="Nombre Miembro 1">
+                      <img src="img/grupo.png" alt="Nombre Miembro 4">
                     </div>
                     <h4>Miembro 4</h4>
                     <span>Contabilidad</span>
@@ -200,7 +235,7 @@
 
                 <div class="tarjeta-miembro">
                     <div class="avatar-miembro">
-                        <img src="img/grupo.png" alt="Nombre Miembro 1">
+                        <img src="img/grupo.png" alt="Nombre Miembro 5">
                     </div>
                     <h4>Miembro 5</h4>
                     <span>Producción</span>
