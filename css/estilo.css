@@ -287,8 +287,10 @@ h2 {
     padding: 100px 10%;
     position: relative;
     overflow: hidden;
-    /* Ajustado el fondo translúcido a crema para encajar con el branding */
     background: linear-gradient(rgba(255, 240, 219, 0.9), rgba(255, 240, 219, 0.9)), url('../img/grupo.png') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .nosotros-contenedor-flex {
@@ -298,6 +300,7 @@ h2 {
     gap: 60px;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .nosotros-contenido {
@@ -405,6 +408,15 @@ h2 {
     transform: translateY(-5px);
 }
 
+/* --- ESTILOS PARA EL BOTÓN CENTRADO EN LA SECCIÓN SOBRE NOSOTROS --- */
+.bloque-boton-centrado {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+    z-index: 10;
+}
+
 /* --- Footer --- */
 footer {
     background-color: var(--texto); /* Fondo ultra oscuro sofisticado */
@@ -473,14 +485,9 @@ footer .redes a:hover {
     .decoracion-fondo {
         display: none;
     }
-
-/* --- Estilos para centrar el botón institucional --- */
-.bloque-boton-centrado {
-    width: 100%;
-    text-align: center; /* Centra horizontalmente cualquier botón de tipo inline-block */
-    margin-top: 50px;   /* Separación perfecta debajo de la cuadrícula y la foto */
-    position: relative;
-    z-index: 10;
+    
+    /* Estilos del botón centrado en versión móvil */
+    .bloque-boton-centrado {
+        margin-top: 40px;
+    }
 }
-} 
-
