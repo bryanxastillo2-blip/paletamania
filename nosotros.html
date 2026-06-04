@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos | Paletamanía</title>
+    
+    <link rel="stylesheet" href="css/estilo.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+    <style>
+        .espacio-superior {
+            padding-top: 40px;
+        }
+        .seccion-interna {
+            padding: 60px 10%;
+        }
+        .bloque-historia {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+        }
+        .contenedor-mision-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        .tarjeta-mv {
+            background-color: var(--tarjetas-bg);
+            padding: 45px 35px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 188, 172, 0.08);
+            box-shadow: 0 8px 30px rgba(31, 58, 56, 0.03);
+        }
+        .tarjeta-mv i {
+            font-size: 45px;
+            color: var(--principal);
+            margin-bottom: 20px;
+        }
+        .tarjeta-mv h3 {
+            font-size: 24px;
+            color: var(--texto);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .contenedor-equipo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .tarjeta-miembro {
+            background-color: var(--tarjetas-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 188, 172, 0.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.01);
+        }
+        .avatar-miembro {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--fondo);
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--principal);
+            border: 3px solid var(--secundario);
+        }
+        .tarjeta-miembro h4 {
+            font-size: 18px;
+            color: var(--texto);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .tarjeta-miembro span {
+            font-size: 13px;
+            color: var(--principal);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 992px) {
+            .bloque-historia {
+                flex-direction: column-reverse;
+                gap: 40px;
+            }
+            .bloque-historia .nosotros-contenido h2,
+            .bloque-historia .descripcion-nosotros {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-contenedor">
+            <img src="img/Logo_Helados_y_Paletas_Divertido_Circular_Amarillo__1_-removebg-preview.png" alt="Paletamanía Logo Mini" class="logo-img">
+            <span class="logo-texto">Paleta<span>manía</span></span>
+        </div>
+        
+        <nav>
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Volver al Inicio</a>
+        </nav>
+    </header>
+
+    <main class="seccion-interna espacio-superior">
+        
+        <div class="bloque-historia">
+            <div class="nosotros-contenido">
+                <p class="subtitulo-izq">Conoce nuestra esencia</p>
+                <h2>¿Quiénes Somos?</h2>
+                <p class="descripcion-nosotros">
+                    <strong>Paletamanía</strong> es un emprendimiento artesanal que nació con el firme propósito de refrescar los corazones de nuestra gente a través de productos únicos, coloridos y llenos de creatividad. Nos dedicamos a la elaboración de paletas gourmet hechas con frutas naturales e ingredientes seleccionados minuciosamente para ofrecer una experiencia inigualable en cada mordisco.
+                </p>
+                <p class="descripcion-nosotros">
+                    <strong>¿Dónde nacimos?</strong> Nuestra historia comenzó con mucho orgullo en las aulas del <strong>Centro Regional de Santa Ana de la Universidad Modular Abierta</strong>. Como un proyecto de cátedra multidisciplinario, logramos conjugar la visión estratégica del mercado, el control contable, la administración de recursos y el desarrollo tecnológico para dar vida a una marca sólida, joven y con proyección de futuro en el mercado salvadoreño.
+                </p>
+            </div>
+            
+            <div class="nosotros-imagen-wrapper">
+                <div class="decoracion-fondo"></div>
+                <img src="img/grupo.png" alt="Equipo Multidisciplinario Paletamanía" class="foto-equipo">
+            </div>
+        </div>
+
+        <div class="contenedor-mision-vision">
+            <div class="tarjeta-mv">
+                <i class="fa-solid fa-bullseye"></i>
+                <h3>Nuestra Misión</h3>
+                <p class="descripcion-nosotros" style="text-align: center; margin-bottom: 0;">
+                    Elaborar y comercializar paletas artesanales de la más alta calidad en Santa Ana, fusionando la frescura de ingredientes naturales con diseños visualmente atractivos, brindando a nuestros clientes momentos inolvidables de felicidad y sabor.
+                </p>
+            </div>
+
+            <div class="tarjeta-mv">
+                <i class="fa-solid fa-eye"></i>
+                <h3>Nuestra Visión</h3>
+                <p class="descripcion-nosotros" style="text-align: center; margin-bottom: 0;">
+                    Ser reconocidos a largo plazo como la marca líder de paletas artesanales y creativas en la zona occidental de El Salvador, distinguidos por nuestro espíritu innovador nacido de la academia, nuestra calidad humana y la lealtad de nuestros clientes.
+                </p>
+            </div>
+        </div>
+
+        <section style="margin-bottom: 40px;">
+            <h2>Nuestro Equipo</h2>
+            <p class="subtitulo">Las mentes detrás del proyecto multidisciplinario</p>
+            
+            <div class="contenedor-equipo">
+                <div class="tarjeta-miembro">
+                    <div class="avatar-miembro">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h4>Miembro 1</h4>
+                    <span>Informática</span>
+                </div>
+
+                <div class="tarjeta-miembro">
+                    <div class="avatar-miembro">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h4>Miembro 2</h4>
+                    <span>Mercadeo</span>
+                </div>
+
+                <div class="tarjeta-miembro">
+                    <div class="avatar-miembro">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h4>Miembro 3</h4>
+                    <span>Administración</span>
+                </div>
+
+                <div class="tarjeta-miembro">
+                    <div class="avatar-miembro">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h4>Miembro 4</h4>
+                    <span>Contabilidad</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="bloque-boton-centrado" style="margin-top: 60px;">
+            <a href="index.html" class="btn-principal">Volver a la Página Principal</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Paletamanía. Creado con orgullo en Santa Ana, El Salvador.</p>
+        <div class="redes">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
