@@ -477,30 +477,10 @@ footer .redes a:hover {
 /* --- Estilos para centrar el botón institucional --- */
 .bloque-boton-centrado {
     width: 100%;
-    text-align: center; /* Alinea elementos en línea al centro */
-    margin-top: 50px;   /* Genera una separación limpia debajo del texto y la foto */
+    text-align: center; /* Centra horizontalmente cualquier botón de tipo inline-block */
+    margin-top: 50px;   /* Separación perfecta debajo de la cuadrícula y la foto */
     position: relative;
     z-index: 10;
 }
-
-.btn-amarillo-centro {
-    display: inline-block; /* Permite controlar el padding manteniendo el comportamiento de texto */
-    padding: 14px 45px;
-    background-color: var(--secundario); /* El amarillo sol brillante de tu logotipo */
-    color: var(--texto);                 /* Color de texto oscuro para contraste perfecto */
-    text-decoration: none;
-    border-radius: 30px;                 /* Forma de píldora idéntica a tu diseño */
-    font-weight: 700;
-    font-size: 16px;
-    box-shadow: 0 5px 20px rgba(255, 204, 0, 0.35);
-    transition: all 0.3s ease;
-    border: none;
-}
-
-.btn-amarillo-centro:hover {
-    background-color: var(--principal);  /* Cambia al turquesa del logo al pasar el cursor */
-    color: #ffffff;                      /* Texto blanco para mayor legibilidad sobre turquesa */
-    transform: translateY(-3px);         /* Efecto leve de elevación */
-    box-shadow: 0 8px 25px rgba(0, 188, 172, 0.4);
-}
+} /* Cierre correcto de la regla @media (max-width: 992px) de arriba */
 }
