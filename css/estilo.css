@@ -474,47 +474,33 @@ footer .redes a:hover {
         display: none;
     }
 
-/* --- Contenedor Global para Centrar el Botón --- */
-.contenedor-btn-nosotros {
-    display: flex;
-    justify-content: center; /* Centra el botón horizontalmente respecto a toda la pantalla */
-    align-items: center;
-    width: 100%;             /* Se expande a lo largo de toda la sección */
-    margin-top: 50px;        /* Espacio de separación debajo de la foto y las disciplinas */
+/* --- Estilos para centrar el botón institucional --- */
+.bloque-boton-centrado {
+    width: 100%;
+    text-align: center; /* Alinea elementos en línea al centro */
+    margin-top: 50px;   /* Genera una separación limpia debajo del texto y la foto */
+    position: relative;
+    z-index: 10;
 }
 
-/* --- Botón Amarillo Estilo Hero --- */
-.btn-conocer-mas {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 35px;
-    background-color: var(--secundario); /* El amarillo brillante de tu paleta */
-    color: var(--texto);                /* Texto oscuro para un contraste perfecto y legible */
+.btn-amarillo-centro {
+    display: inline-block; /* Permite controlar el padding manteniendo el comportamiento de texto */
+    padding: 14px 45px;
+    background-color: var(--secundario); /* El amarillo sol brillante de tu logotipo */
+    color: var(--texto);                 /* Color de texto oscuro para contraste perfecto */
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 30px;                 /* Forma de píldora idéntica a tu diseño */
     font-weight: 700;
     font-size: 16px;
-    box-shadow: 0 5px 20px rgba(255, 204, 0, 0.35); /* Sombra suave amarilla */
+    box-shadow: 0 5px 20px rgba(255, 204, 0, 0.35);
     transition: all 0.3s ease;
     border: none;
-    cursor: pointer;
 }
 
-/* Efectos al pasar el cursor (Hover) */
-.btn-conocer-mas:hover {
-    background-color: var(--principal); /* Cambia al turquesa del logo al pasar el mouse */
-    color: #ffffff;                    /* El texto se vuelve blanco */
-    transform: translateY(-3px);        /* Pequeña elevación muy sutil */
-    box-shadow: 0 8px 25px rgba(0, 188, 172, 0.4); /* Sombra turquesa brillante */
+.btn-amarillo-centro:hover {
+    background-color: var(--principal);  /* Cambia al turquesa del logo al pasar el cursor */
+    color: #ffffff;                      /* Texto blanco para mayor legibilidad sobre turquesa */
+    transform: translateY(-3px);         /* Efecto leve de elevación */
+    box-shadow: 0 8px 25px rgba(0, 188, 172, 0.4);
 }
-
-.btn-conocer-mas i {
-    font-size: 14px;
-    transition: transform 0.3s ease;
-}
-
-.btn-conocer-mas:hover i {
-    transform: translateX(4px);         /* La flechita se mueve ligeramente a la derecha */
-}    
 }
