@@ -490,4 +490,100 @@ footer .redes a:hover {
     .bloque-boton-centrado {
         margin-top: 40px;
     }
+
+    /* --- Sección Reseñas Dinámicas --- */
+.reseñas-container {
+    padding: 80px 10%;
+    background-color: var(--fondo);
+}
+
+.grid-reseñas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.tarjeta-comentario {
+    background-color: var(--tarjetas-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(31, 58, 56, 0.03);
+    border: 1px solid rgba(0, 188, 172, 0.05);
+    position: relative;
+    animation: fadeInUp 0.5s ease;
+}
+
+.tarjeta-comentario h4 {
+    color: var(--texto);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.estrellas-comentario {
+    color: var(--secundario); /* Amarillo del logo para las estrellas */
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.texto-comentario {
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.cargando-texto {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--texto-suave);
+    font-weight: 600;
+}
+
+/* Formulario */
+.formulario-reseña-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--tarjetas-bg);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(31, 58, 56, 0.05);
+    border: 1px solid rgba(0, 188, 172, 0.1);
+}
+
+.formulario-reseña-box h3 {
+    text-align: center;
+    font-size: 20px;
+    color: var(--texto);
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.input-grupo {
+    margin-bottom: 20px;
+}
+
+.input-grupo input, 
+.input-grupo select, 
+.input-grupo textarea {
+    width: 100%;
+    padding: 12px 18px;
+    border: 2px solid var(--fondo);
+    background-color: var(--fondo);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--texto);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-grupo input:focus, 
+.input-grupo select:focus, 
+.input-grupo textarea:focus {
+    border-color: var(--principal); /* Borde turquesa al dar foco */
+    background-color: #ffffff;
+}
+    
 }
