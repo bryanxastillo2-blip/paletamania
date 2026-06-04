@@ -66,17 +66,24 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.01);
         }
         .avatar-miembro {
-            width: 100px;
-            height: 100px;
+            width: 110px;          /* Lo agrandamos un poquito para que luzcan las fotos */
+            height: 110px;
             border-radius: 50%;
             background-color: var(--fondo);
             margin: 0 auto 20px auto;
+            overflow: hidden;      /* CRUCIAL: Corta la foto en forma de círculo */
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            color: var(--principal);
-            border: 3px solid var(--secundario);
+            border: 3px solid var(--secundario); /* Mantiene el borde amarillo sol */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .avatar-miembro img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;     /* Ajusta la foto perfectamente al círculo sin distorsionarla */
+            display: block;
         }
         .tarjeta-miembro h4 {
             font-size: 18px;
