@@ -474,40 +474,39 @@ footer .redes a:hover {
         display: none;
     }
 
-/* --- Contenedor y Botón Conocer Más (Sección Nosotros) --- */
+/* --- Contenedor Global para Centrar el Botón --- */
 .contenedor-btn-nosotros {
     display: flex;
-    justify-content: center; /* Centrado horizontal absoluto en la sección */
+    justify-content: center; /* Centra el botón horizontalmente respecto a toda la pantalla */
     align-items: center;
-    width: 100%;
-    margin-top: 50px;        /* Espacio generoso debajo de la foto y el texto */
-    position: relative;
-    z-index: 10;             /* Se asegura de quedar por encima de cualquier fondo */
+    width: 100%;             /* Se expande a lo largo de toda la sección */
+    margin-top: 50px;        /* Espacio de separación debajo de la foto y las disciplinas */
 }
 
+/* --- Botón Amarillo Estilo Hero --- */
 .btn-conocer-mas {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 15px 40px;
-    background-color: var(--principal); /* Color turquesa del logo */
-    color: #ffffff;                    /* Texto blanco */
+    padding: 14px 35px;
+    background-color: var(--secundario); /* El amarillo brillante de tu paleta */
+    color: var(--texto);                /* Texto oscuro para un contraste perfecto y legible */
     text-decoration: none;
     border-radius: 30px;
     font-weight: 700;
     font-size: 16px;
-    letter-spacing: 0.5px;
-    box-shadow: 0 6px 20px rgba(0, 188, 172, 0.3);
+    box-shadow: 0 5px 20px rgba(255, 204, 0, 0.35); /* Sombra suave amarilla */
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
 }
 
+/* Efectos al pasar el cursor (Hover) */
 .btn-conocer-mas:hover {
-    background-color: var(--secundario); /* Cambia al amarillo brillante del logo al pasar el cursor */
-    color: var(--texto);                /* El texto cambia al tono oscuro para contraste */
-    transform: translateY(-4px);        /* Pequeña elevación */
-    box-shadow: 0 10px 25px rgba(255, 204, 0, 0.4);
+    background-color: var(--principal); /* Cambia al turquesa del logo al pasar el mouse */
+    color: #ffffff;                    /* El texto se vuelve blanco */
+    transform: translateY(-3px);        /* Pequeña elevación muy sutil */
+    box-shadow: 0 8px 25px rgba(0, 188, 172, 0.4); /* Sombra turquesa brillante */
 }
 
 .btn-conocer-mas i {
@@ -516,7 +515,6 @@ footer .redes a:hover {
 }
 
 .btn-conocer-mas:hover i {
-    transform: translateX(5px);         /* La flecha se desplaza dinámicamente */
-}
-    
+    transform: translateX(4px);         /* La flechita se mueve ligeramente a la derecha */
+}    
 }
