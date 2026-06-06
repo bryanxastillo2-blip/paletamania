@@ -104,7 +104,6 @@ header nav a:hover, .dropdown:hover .dropbtn {
     transform: rotate(180deg);
 }
 
-/* Contenedor principal del menú desplegable al ras del encabezado */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -116,10 +115,8 @@ header nav a:hover, .dropdown:hover .dropbtn {
     border-radius: 12px;
     z-index: 100;
     overflow: hidden;
-    /* Se removió el margin-top para eliminar el espacio vacío que rompía el foco */
 }
 
-/* Puente invisible de contacto para retener el cursor al bajar */
 .dropdown::after {
     content: '';
     position: absolute;
@@ -299,7 +296,7 @@ h2 {
     line-height: 1.6;
 }
 
-/* --- Nuestras Delicias (Catálogo) --- */
+/* --- Nuestras Delicias (Catálogo Interactiva) --- */
 .catalogo {
     padding: 80px 10%;
 }
@@ -320,6 +317,7 @@ h2 {
     border: 1px solid rgba(0, 0, 0, 0.02);
     display: flex;
     flex-direction: column;
+    cursor: pointer; /* Indica que se puede cliquear */
 }
 
 .sabor-card:hover {
@@ -334,6 +332,7 @@ h2 {
     justify-content: center;
     font-size: 64px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+    background-color: #fafafa;
 }
 
 .sabor-info {
@@ -352,6 +351,94 @@ h2 {
     color: var(--texto-suave);
     font-size: 14px;
     line-height: 1.5;
+}
+
+/* --- ESTILOS COMPLETOS DEL MODAL DETALLE DE SABORES --- */
+.modal-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 58, 56, 0.5); /* Fondo verde oscuro traslúcido */
+    backdrop-filter: blur(8px);               /* Efecto de desenfoque moderno */
+    z-index: 2000;                            /* Por encima de la navegación */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Clase activa manejada por JS */
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-wrapper {
+    background-color: var(--tarjetas-bg);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 24px;
+    padding: 40px 30px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(31, 58, 56, 0.25);
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0, 188, 172, 0.1);
+}
+
+.modal-cerrar-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--texto-suave);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-cerrar-btn:hover {
+    color: var(--acentos);
+}
+
+.modal-cuerpo {
+    text-align: center;
+}
+
+.modal-ilustracion {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.modal-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: var(--fondo);
+    color: var(--texto-suave);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+#modal-titulo {
+    font-size: 26px;
+    color: var(--texto);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+#modal-descripcion {
+    font-size: 15px;
+    color: var(--texto-suave);
+    line-height: 1.7;
 }
 
 /* --- Sobre Nosotros --- */
@@ -487,14 +574,13 @@ h2 {
 }
 
 /* ==========================================================================
-   6. SECCIÓN RESEÑAS DINÁMICAS (NUEVO ENFOQUE: CARRETE DESLIZABLE)
+   6. SECCIÓN RESEÑAS DINÁMICAS (CARRETE DESLIZABLE)
    ========================================================================== */
 .reseñas-container {
     padding: 80px 10%;
     background-color: var(--fondo);
 }
 
-/* Envoltorio estructural para asegurar el ancho y ocultar desbordes toscos */
 .contenedor-carrete {
     width: 100%;
     overflow: hidden;
@@ -502,21 +588,19 @@ h2 {
     padding: 10px 5px;
 }
 
-/* Cambiado a flex: Organiza todas las tarjetas en una línea infinita deslizable */
 .grid-reseñas {
     display: flex;
     gap: 25px;
-    overflow-x: auto;            /* Activa el desplazamiento de lado a lado */
-    scroll-snap-type: x mandatory; /* Imanta las tarjetas de forma precisa */
-    padding-bottom: 20px;         /* Margen para la barra de scroll estética */
+    overflow-x: auto;            
+    scroll-snap-type: x mandatory; 
+    padding-bottom: 20px;         
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Suavidad táctil en smartphones */
+    -webkit-overflow-scrolling: touch; 
 }
 
-/* Formato fijo de tarjeta para evitar deformaciones en el carrusel */
 .tarjeta-comentario {
-    flex: 0 0 320px;              /* Ancho permanente en PC y teléfonos */
-    scroll-snap-align: start;     /* Punto de anclaje para la animación imán */
+    flex: 0 0 320px;              
+    scroll-snap-align: start;     
     background-color: var(--tarjetas-bg);
     padding: 30px;
     border-radius: 20px;
@@ -530,7 +614,6 @@ h2 {
     transform: translateY(-5px);
 }
 
-/* Estilización moderna de la barra de desplazamiento horizontal */
 .grid-reseñas::-webkit-scrollbar {
     height: 8px;
 }
@@ -726,73 +809,50 @@ footer .redes a:hover {
 }
 
 /* ==========================================================================
-   9. SECCIÓN RESPONSIVE (MEDIA QUERIES COMPLETA Y OPTIMIZADA)
+   9. SECCIÓN RESPONSIVE (MEDIA QUERIES)
    ========================================================================== */
-
 @media (max-width: 992px) {
     header {
         flex-direction: column;
         padding: 20px;
         gap: 15px;
     }
-    
     header nav {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
     }
-    
     header nav a, .dropbtn {
         margin-left: 10px;
         margin-right: 10px;
         font-size: 14px;
     }
-    
-    /* Centra el submenú de forma equilibrada en pantallas medianas */
     .dropdown-content {
         left: 50%;
         transform: translateX(-50%);
         right: auto;
     }
-
     .hero {
         height: auto;
         padding: 120px 20px;
     }
-    
     .hero h1 { font-size: 36px; }
     .hero p { font-size: 16px; }
     .hero-logo-center { height: 100px; }
-    
     .nosotros-contenedor-flex {
         flex-direction: column-reverse;
         gap: 40px;
     }
-    
-    .nosotros-contenido h2,
-    .subtitulo-izq,
-    .descripcion-nosotros {
-        text-align: center;
-    }
-    
+    .nosotros-contenido h2, .subtitulo-izq, .descripcion-nosotros { text-align: center; }
     .disciplinas-grid { grid-template-columns: 1fr; }
     .decoracion-fondo { display: none; }
     .bloque-boton-centrado { margin-top: 40px; }
     .reseñas-container { padding: 60px 5%; }
-    
-    /* Se removió la conversión a 1 columna vertical para heredar el carrusel horizontal */
-    
-    .formulario-reseña-box {
-        padding: 30px 20px;
-        margin: 0 10px;
-    }
+    .formulario-reseña-box { padding: 30px 20px; margin: 0 10px; }
 }
 
 @media (max-width: 768px) {
-    .contacto-flex {
-        flex-direction: column;
-        gap: 40px;
-    }
+    .contacto-flex { flex-direction: column; gap: 40px; }
     .contacto-info, .formulario-contacto-box { width: 100%; }
     .contacto-info h3, .contacto-descripcion { text-align: center; }
 }
@@ -800,18 +860,7 @@ footer .redes a:hover {
 @media (max-width: 480px) {
     .reseñas-container { padding: 40px 5%; }
     .formulario-reseña-box { padding: 25px 15px; }
-    
-    /* Asegura que las tarjetas reduzcan ligeramente su ancho en teléfonos muy chicos */
-    .tarjeta-comentario { 
-        flex: 0 0 280px;
-        padding: 20px; 
-    }
-    
-    header nav {
-        gap: 5px;
-    }
-    header nav a, .dropbtn {
-        font-size: 13px;
-        margin: 5px;
-    }
+    .tarjeta-comentario { flex: 0 0 280px; padding: 20px; }
+    header nav { gap: 5px; }
+    header nav a, .dropbtn { font-size: 13px; margin: 5px; }
 }
