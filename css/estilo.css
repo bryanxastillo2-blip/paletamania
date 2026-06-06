@@ -701,4 +701,115 @@ footer .redes a:hover {
     .tarjeta-comentario {
         padding: 20px;
     }
+
+/* --- Menú Desplegable --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    margin-left: 25px;
+    text-decoration: none;
+    color: var(--texto-suave);
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.dropbtn i {
+    font-size: 12px;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropbtn i {
+    transform: rotate(180deg);
+}
+
+.dropbtn:hover {
+    color: var(--principal);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--tarjetas-bg);
+    min-width: 160px;
+    box-shadow: 0 8px 20px rgba(31, 58, 56, 0.15);
+    border-radius: 12px;
+    z-index: 100;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.dropdown-content a {
+    color: var(--texto-suave);
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-left: 0;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--fondo);
+    color: var(--principal);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Flecha animada */
+.dropbtn i {
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropbtn i {
+    transform: rotate(180deg);
+}
+
+/* --- Estilos responsive para el menú desplegable --- */
+@media (max-width: 992px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .dropbtn {
+        margin-left: 0;
+    }
+    
+    .dropdown-content {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 140px;
+    }
+    
+    .dropdown-content a {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .dropdown {
+        margin-top: 0;
+    }
+}
+    
 }
