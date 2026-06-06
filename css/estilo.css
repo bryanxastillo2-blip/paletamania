@@ -1,4 +1,6 @@
-/* --- Variables de Color y Reset --- */
+/* ==========================================================================
+   1. VARIABLES DE COLOR Y RESET DE ESTILOS
+   ========================================================================== */
 :root {
     --principal: #00bcac;         /* Turquesa/Cian vibrante del logo */
     --principal-oscuro: #009689;  /* Turquesa oscuro para efectos hover */
@@ -24,7 +26,9 @@ body {
     line-height: 1.6;
 }
 
-/* --- Barra de Navegación --- */
+/* ==========================================================================
+   2. HEADER / BARRA DE NAVEGACIÓN
+   ========================================================================== */
 header {
     display: flex;
     justify-content: space-between;
@@ -82,7 +86,9 @@ header nav a:hover, .dropdown:hover .dropbtn {
     color: var(--principal);
 }
 
-/* --- Menú Desplegable (Dropdown) --- */
+/* ==========================================================================
+   3. MENÚ DESPLEGABLE (DROPDOWN CORREGIDO SIN ESPACIOS VACÍOS)
+   ========================================================================== */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -98,10 +104,11 @@ header nav a:hover, .dropdown:hover .dropbtn {
     transform: rotate(180deg);
 }
 
+/* Contenedor principal del menú desplegable */
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 100%; /* Ajustado justo al ras del header */
     right: 0;
     background-color: var(--tarjetas-bg);
     min-width: 160px;
@@ -109,7 +116,22 @@ header nav a:hover, .dropdown:hover .dropbtn {
     border-radius: 12px;
     z-index: 100;
     overflow: hidden;
-    margin-top: 15px;
+    /* Se quitó el margin-top para que no exista un hueco que cierre el menú al arrastrar */
+}
+
+/* Puente invisible que evita que se pierda el foco si el usuario desliza despacio */
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: transparent;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 .dropdown-content a {
@@ -129,11 +151,9 @@ header nav a:hover, .dropdown:hover .dropbtn {
     color: var(--principal);
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* --- Sección Hero --- */
+/* ==========================================================================
+   4. SECCIÓN HERO (INICIO)
+   ========================================================================== */
 .hero {
     height: 90vh;
     display: flex;
@@ -199,7 +219,9 @@ header nav a:hover, .dropdown:hover .dropbtn {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Títulos Globales --- */
+/* ==========================================================================
+   5. TÍTULOS GLOBALES Y SECCIONES
+   ========================================================================== */
 h2 {
     text-align: center;
     font-size: 36px;
@@ -218,7 +240,7 @@ h2 {
     margin-bottom: 50px;
 }
 
-/* --- Sección Beneficios --- */
+/* --- Creamos Historias (Beneficios) --- */
 .beneficios {
     padding: 80px 10%;
     background-color: var(--tarjetas-bg);
@@ -277,7 +299,7 @@ h2 {
     line-height: 1.6;
 }
 
-/* --- Sección Catálogo --- */
+/* --- Nuestras Delicias (Catálogo) --- */
 .catalogo {
     padding: 80px 10%;
 }
@@ -332,7 +354,7 @@ h2 {
     line-height: 1.5;
 }
 
-/* --- Sección Sobre Nosotros --- */
+/* --- Sobre Nosotros --- */
 .sobre-nosotros {
     padding: 100px 10%;
     position: relative;
@@ -464,7 +486,9 @@ h2 {
     z-index: 10;
 }
 
-/* --- Sección Reseñas Dinámicas --- */
+/* ==========================================================================
+   6. SECCIÓN RESEÑAS DINÁMICAS (FIREBASE)
+   ========================================================================== */
 .reseñas-container {
     padding: 80px 10%;
     background-color: var(--fondo);
@@ -565,7 +589,9 @@ h2 {
     background-color: #ffffff;
 }
 
-/* --- Sección de Contacto --- */
+/* ==========================================================================
+   7. SECCIÓN DE CONTACTO (EMAILJS)
+   ========================================================================== */
 .contacto-container {
     padding: 80px 10%;
     background-color: var(--tarjetas-bg);
@@ -630,7 +656,9 @@ h2 {
     box-shadow: 0 10px 30px rgba(31, 58, 56, 0.02);
 }
 
-/* --- Footer --- */
+/* ==========================================================================
+   8. FOOTER / PIE DE PÁGINA
+   ========================================================================== */
 footer {
     background-color: var(--texto);
     color: #ffffff;
@@ -657,7 +685,9 @@ footer .redes a:hover {
     transform: scale(1.2);
 }
 
-/* --- ==================== SECCIÓN RESPONSIVE (MEDIA QUERIES) ==================== --- */
+/* ==========================================================================
+   9. SECCIÓN RESPONSIVE (MEDIA QUERIES COMPLETA)
+   ========================================================================== */
 
 @media (max-width: 992px) {
     header {
@@ -678,6 +708,7 @@ footer .redes a:hover {
         font-size: 14px;
     }
     
+    /* Centra de forma fluida el submenú en tablets y laptops pequeñas */
     .dropdown-content {
         left: 50%;
         transform: translateX(-50%);
