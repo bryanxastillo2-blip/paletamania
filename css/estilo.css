@@ -1,4 +1,4 @@
-/* --- Variables de Color y Reset (Inspirado en Logo Helados y Paletas Divertido Circular Amarillo (2).png) --- */
+/* --- Variables de Color y Reset --- */
 :root {
     --principal: #00bcac;         /* Turquesa/Cian vibrante del logo */
     --principal-oscuro: #009689;  /* Turquesa oscuro para efectos hover */
@@ -29,7 +29,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
+    padding: 15px 10%;
     background-color: var(--tarjetas-bg);
     position: sticky;
     top: 0;
@@ -37,7 +37,6 @@ header {
     box-shadow: 0 4px 20px rgba(31, 58, 56, 0.05);
 }
 
-/* Contenedor del Logo + Texto alineados */
 .logo-contenedor {
     display: flex;
     align-items: center;
@@ -61,20 +60,80 @@ header {
     color: var(--principal);
 }
 
-header nav a {
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a, .dropbtn {
     margin-left: 25px;
     text-decoration: none;
     color: var(--texto-suave);
     font-weight: 600;
     font-size: 15px;
     transition: color 0.3s ease;
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
 }
 
-header nav a:hover {
+header nav a:hover, .dropdown:hover .dropbtn {
     color: var(--principal);
 }
 
-/* --- Sección Hero (Centrado, Logo Superior e Imagen de Fondo) --- */
+/* --- Menú Desplegable (Dropdown) --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn i {
+    font-size: 12px;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropbtn i {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--tarjetas-bg);
+    min-width: 160px;
+    box-shadow: 0 8px 20px rgba(31, 58, 56, 0.15);
+    border-radius: 12px;
+    z-index: 100;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.dropdown-content a {
+    color: var(--texto-suave);
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-left: 0;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--fondo);
+    color: var(--principal);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* --- Sección Hero --- */
 .hero {
     height: 90vh;
     display: flex;
@@ -135,16 +194,9 @@ header nav a:hover {
     box-shadow: 0 8px 25px rgba(0, 188, 172, 0.4);
 }
 
-/* Animación para el Hero */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* --- Títulos Globales --- */
@@ -166,7 +218,7 @@ h2 {
     margin-bottom: 50px;
 }
 
-/* --- Sección Beneficios (Creamos Historias - Con Imágenes) --- */
+/* --- Sección Beneficios --- */
 .beneficios {
     padding: 80px 10%;
     background-color: var(--tarjetas-bg);
@@ -195,7 +247,6 @@ h2 {
     box-shadow: 0 15px 35px rgba(31, 58, 56, 0.08);
 }
 
-/* Contenedor circular para la imagen del beneficio */
 .beneficio-img-wrapper {
     width: 95px;
     height: 95px;
@@ -206,7 +257,6 @@ h2 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Estilo interno de la foto */
 .beneficio-img {
     width: 100%;
     height: 100%;
@@ -227,7 +277,7 @@ h2 {
     line-height: 1.6;
 }
 
-/* --- Sección Catálogo (Nuestras Delicias) --- */
+/* --- Sección Catálogo --- */
 .catalogo {
     padding: 80px 10%;
 }
@@ -282,7 +332,7 @@ h2 {
     line-height: 1.5;
 }
 
-/* --- Sección Sobre Nosotros (Texto Izquierda, Foto Derecha e Imagen de Fondo) --- */
+/* --- Sección Sobre Nosotros --- */
 .sobre-nosotros {
     padding: 100px 10%;
     position: relative;
@@ -335,7 +385,6 @@ h2 {
     text-align: left;
 }
 
-/* Rejilla de Disciplinas */
 .disciplinas-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -372,7 +421,6 @@ h2 {
     color: var(--texto);
 }
 
-/* Contenedor de Imagen de Equipo */
 .nosotros-imagen-wrapper {
     flex: 0.9;
     position: relative;
@@ -408,7 +456,6 @@ h2 {
     transform: translateY(-5px);
 }
 
-/* --- ESTILOS PARA EL BOTÓN CENTRADO EN LA SECCIÓN SOBRE NOSOTROS --- */
 .bloque-boton-centrado {
     width: 100%;
     text-align: center;
@@ -417,7 +464,7 @@ h2 {
     z-index: 10;
 }
 
-/* --- SECCIÓN RESEÑAS DINÁMICAS --- */
+/* --- Sección Reseñas Dinámicas --- */
 .reseñas-container {
     padding: 80px 10%;
     background-color: var(--fondo);
@@ -437,7 +484,6 @@ h2 {
     box-shadow: 0 5px 20px rgba(31, 58, 56, 0.03);
     border: 1px solid rgba(0, 188, 172, 0.05);
     position: relative;
-    animation: fadeInUp 0.5s ease;
 }
 
 .tarjeta-comentario h4 {
@@ -467,7 +513,6 @@ h2 {
     font-weight: 600;
 }
 
-/* Formulario de reseñas */
 .formulario-reseña-box {
     max-width: 600px;
     margin: 0 auto;
@@ -612,56 +657,57 @@ footer .redes a:hover {
     transform: scale(1.2);
 }
 
-/* --- Adaptabilidad Móvil (Responsive) --- */
+/* --- ==================== SECCIÓN RESPONSIVE (MEDIA QUERIES) ==================== --- */
+
 @media (max-width: 992px) {
     header {
         flex-direction: column;
-        padding: 15px;
+        padding: 20px;
+        gap: 15px;
     }
+    
     header nav {
-        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
     }
-    header nav a {
-        margin: 0 10px;
+    
+    header nav a, .dropbtn {
+        margin-left: 10px;
+        margin-right: 10px;
         font-size: 14px;
     }
+    
+    .dropdown-content {
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+    }
+
     .hero {
         height: auto;
         padding: 120px 20px;
     }
-    .hero h1 {
-        font-size: 36px;
-    }
-    .hero p {
-        font-size: 16px;
-    }
-    .hero-logo-center {
-        height: 100px;
-    }
+    
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 16px; }
+    .hero-logo-center { height: 100px; }
+    
     .nosotros-contenedor-flex {
         flex-direction: column-reverse;
         gap: 40px;
     }
+    
     .nosotros-contenido h2,
     .subtitulo-izq,
     .descripcion-nosotros {
         text-align: center;
     }
-    .disciplinas-grid {
-        grid-template-columns: 1fr;
-    }
-    .decoracion-fondo {
-        display: none;
-    }
     
-    .bloque-boton-centrado {
-        margin-top: 40px;
-    }
-    
-    /* Estilos responsive para reseñas */
-    .reseñas-container {
-        padding: 60px 5%;
-    }
+    .disciplinas-grid { grid-template-columns: 1fr; }
+    .decoracion-fondo { display: none; }
+    .bloque-boton-centrado { margin-top: 40px; }
+    .reseñas-container { padding: 60px 5%; }
     
     .grid-reseñas {
         grid-template-columns: 1fr;
@@ -679,137 +725,20 @@ footer .redes a:hover {
         flex-direction: column;
         gap: 40px;
     }
-    .contacto-info, 
-    .formulario-contacto-box {
-        width: 100%;
-    }
-    .contacto-info h3, 
-    .contacto-descripcion {
-        text-align: center;
-    }
+    .contacto-info, .formulario-contacto-box { width: 100%; }
+    .contacto-info h3, .contacto-descripcion { text-align: center; }
 }
 
 @media (max-width: 480px) {
-    .reseñas-container {
-        padding: 40px 5%;
-    }
+    .reseñas-container { padding: 40px 5%; }
+    .formulario-reseña-box { padding: 25px 15px; }
+    .tarjeta-comentario { padding: 20px; }
     
-    .formulario-reseña-box {
-        padding: 25px 15px;
+    header nav {
+        gap: 5px;
     }
-    
-    .tarjeta-comentario {
-        padding: 20px;
+    header nav a, .dropbtn {
+        font-size: 13px;
+        margin: 5px;
     }
-
-/* --- Menú Desplegable --- */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn {
-    margin-left: 25px;
-    text-decoration: none;
-    color: var(--texto-suave);
-    font-weight: 600;
-    font-size: 15px;
-    transition: color 0.3s ease;
-    cursor: pointer;
-}
-
-.dropbtn i {
-    font-size: 12px;
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-}
-
-.dropdown:hover .dropbtn i {
-    transform: rotate(180deg);
-}
-
-.dropbtn:hover {
-    color: var(--principal);
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--tarjetas-bg);
-    min-width: 160px;
-    box-shadow: 0 8px 20px rgba(31, 58, 56, 0.15);
-    border-radius: 12px;
-    z-index: 100;
-    overflow: hidden;
-    margin-top: 10px;
-}
-
-.dropdown-content a {
-    color: var(--texto-suave);
-    padding: 12px 20px;
-    text-decoration: none;
-    display: block;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    margin-left: 0;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: var(--fondo);
-    color: var(--principal);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Flecha animada */
-.dropbtn i {
-    transition: transform 0.3s ease;
-}
-
-.dropdown:hover .dropbtn i {
-    transform: rotate(180deg);
-}
-
-/* --- Estilos responsive para el menú desplegable --- */
-@media (max-width: 992px) {
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-    
-    .dropbtn {
-        margin-left: 0;
-    }
-    
-    .dropdown-content {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        min-width: 140px;
-    }
-    
-    .dropdown-content a {
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    
-    .dropdown {
-        margin-top: 0;
-    }
-}
-    
 }
