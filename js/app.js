@@ -86,3 +86,43 @@ formularioReseña.addEventListener('submit', (e) => {
 
 // Ejecutar la lectura de comentarios en cuanto cargue la página
 window.addEventListener('DOMContentLoaded', cargarReseñas);
+
+
+// ==========================================
+// CONFIGURACIÓN Y ENVÍO DE CORREOS CON EMAILJS
+// ==========================================
+
+// Inicializa EmailJS con tu Public Key (Mírala en EmailJS -> Account -> API Keys)
+(function() {
+    emailjs.init("hzn19Pq0tpWwEis_5"); 
+})();
+
+const formularioContacto = document.getElementById('form-contacto-email');
+const botonEnviar = document.getElementById('btn-enviar-correo');
+
+// Escuchar el evento de envío del formulario de contacto
+formularioContacto.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que la página se recargue
+
+    // Efecto visual de carga en el botón (UX)
+    botonEnviar.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Enviando...`;
+    botonEnviar.disabled = true;
+
+    // IDs obtenidos de tu panel de control en EmailJS
+    const serviceID = 'service_36cxlza';
+    const templateID = 'template_1pjujjo';
+
+    // Envío directo a la API de EmailJS pasando "this" (el formulario actual)
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            botonEnviar.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Enviar Mensaje`;
+            botonEnviar.disabled = false;
+            alert('¡Tu mensaje ha sido enviado con éxito! Nos pondremos en contacto contigo pronto. 🍓');
+            formularioContacto.reset(); // Limpia los campos del formulario
+        }, (err) => {
+            botonEnviar.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Enviar Mensaje`;
+            botonEnviar.disabled = false;
+            alert('Ocurrió un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+            console.error('Error detallado de EmailJS:', err);
+        });
+});
