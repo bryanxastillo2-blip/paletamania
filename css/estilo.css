@@ -87,7 +87,7 @@ header nav a:hover, .dropdown:hover .dropbtn {
 }
 
 /* ==========================================================================
-   3. MENÚ DESPLEGABLE (DROPDOWN CORREGIDO SIN ESPACIOS VACÍOS)
+   3. MENÚ DESPLEGABLE (DROPDOWN CORREGIDO - SIN CIERRES ACCIDENTALES)
    ========================================================================== */
 .dropdown {
     position: relative;
@@ -104,11 +104,11 @@ header nav a:hover, .dropdown:hover .dropbtn {
     transform: rotate(180deg);
 }
 
-/* Contenedor principal del menú desplegable */
+/* Contenedor principal del menú desplegable al ras del encabezado */
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%; /* Ajustado justo al ras del header */
+    top: 100%; 
     right: 0;
     background-color: var(--tarjetas-bg);
     min-width: 160px;
@@ -116,10 +116,10 @@ header nav a:hover, .dropdown:hover .dropbtn {
     border-radius: 12px;
     z-index: 100;
     overflow: hidden;
-    /* Se quitó el margin-top para que no exista un hueco que cierre el menú al arrastrar */
+    /* Se removió el margin-top para eliminar el espacio vacío que rompía el foco */
 }
 
-/* Puente invisible que evita que se pierda el foco si el usuario desliza despacio */
+/* Puente invisible de contacto para retener el cursor al bajar */
 .dropdown::after {
     content: '';
     position: absolute;
@@ -487,27 +487,66 @@ h2 {
 }
 
 /* ==========================================================================
-   6. SECCIÓN RESEÑAS DINÁMICAS (FIREBASE)
+   6. SECCIÓN RESEÑAS DINÁMICAS (NUEVO ENFOQUE: CARRETE DESLIZABLE)
    ========================================================================== */
 .reseñas-container {
     padding: 80px 10%;
     background-color: var(--fondo);
 }
 
-.grid-reseñas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+/* Envoltorio estructural para asegurar el ancho y ocultar desbordes toscos */
+.contenedor-carrete {
+    width: 100%;
+    overflow: hidden;
     margin-bottom: 50px;
+    padding: 10px 5px;
 }
 
+/* Cambiado a flex: Organiza todas las tarjetas en una línea infinita deslizable */
+.grid-reseñas {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;            /* Activa el desplazamiento de lado a lado */
+    scroll-snap-type: x mandatory; /* Imanta las tarjetas de forma precisa */
+    padding-bottom: 20px;         /* Margen para la barra de scroll estética */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Suavidad táctil en smartphones */
+}
+
+/* Formato fijo de tarjeta para evitar deformaciones en el carrusel */
 .tarjeta-comentario {
+    flex: 0 0 320px;              /* Ancho permanente en PC y teléfonos */
+    scroll-snap-align: start;     /* Punto de anclaje para la animación imán */
     background-color: var(--tarjetas-bg);
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(31, 58, 56, 0.03);
+    box-shadow: 0 8px 25px rgba(31, 58, 56, 0.04);
     border: 1px solid rgba(0, 188, 172, 0.05);
     position: relative;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-comentario:hover {
+    transform: translateY(-5px);
+}
+
+/* Estilización moderna de la barra de desplazamiento horizontal */
+.grid-reseñas::-webkit-scrollbar {
+    height: 8px;
+}
+
+.grid-reseñas::-webkit-scrollbar-track {
+    background: rgba(0, 188, 172, 0.05);
+    border-radius: 10px;
+}
+
+.grid-reseñas::-webkit-scrollbar-thumb {
+    background: var(--principal);
+    border-radius: 10px;
+}
+
+.grid-reseñas::-webkit-scrollbar-thumb:hover {
+    background: var(--principal-oscuro);
 }
 
 .tarjeta-comentario h4 {
@@ -531,10 +570,11 @@ h2 {
 }
 
 .cargando-texto {
-    grid-column: 1 / -1;
+    width: 100%;
     text-align: center;
     color: var(--texto-suave);
     font-weight: 600;
+    padding: 20px 0;
 }
 
 .formulario-reseña-box {
@@ -686,7 +726,7 @@ footer .redes a:hover {
 }
 
 /* ==========================================================================
-   9. SECCIÓN RESPONSIVE (MEDIA QUERIES COMPLETA)
+   9. SECCIÓN RESPONSIVE (MEDIA QUERIES COMPLETA Y OPTIMIZADA)
    ========================================================================== */
 
 @media (max-width: 992px) {
@@ -708,7 +748,7 @@ footer .redes a:hover {
         font-size: 14px;
     }
     
-    /* Centra de forma fluida el submenú en tablets y laptops pequeñas */
+    /* Centra el submenú de forma equilibrada en pantallas medianas */
     .dropdown-content {
         left: 50%;
         transform: translateX(-50%);
@@ -740,10 +780,7 @@ footer .redes a:hover {
     .bloque-boton-centrado { margin-top: 40px; }
     .reseñas-container { padding: 60px 5%; }
     
-    .grid-reseñas {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
+    /* Se removió la conversión a 1 columna vertical para heredar el carrusel horizontal */
     
     .formulario-reseña-box {
         padding: 30px 20px;
@@ -763,7 +800,12 @@ footer .redes a:hover {
 @media (max-width: 480px) {
     .reseñas-container { padding: 40px 5%; }
     .formulario-reseña-box { padding: 25px 15px; }
-    .tarjeta-comentario { padding: 20px; }
+    
+    /* Asegura que las tarjetas reduzcan ligeramente su ancho en teléfonos muy chicos */
+    .tarjeta-comentario { 
+        flex: 0 0 280px;
+        padding: 20px; 
+    }
     
     header nav {
         gap: 5px;
