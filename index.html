@@ -77,32 +77,44 @@
         </div>
     </section>
     
-    <section id="delicias" class="catalogo">
+    <section id="catalogo" class="catalogo">
         <h2>Nuestras Delicias</h2>
-        <p class="subtitulo">Un vistazo a nuestras creaciones artesanales</p>
-        
+        <p class="subtitulo">Sabores artesanales con el alma de El Salvador</p>
+
         <div class="contenedor-sabores">
-            <div class="sabor-card">
-                <div class="sabor-img-placeholder" style="background: #ffcbd7;">🍓</div>
+            <div class="sabor-card" data-nombre="Sol de Playa" data-descripcion="Disfruta de la frescura tropical con una explosión ácida y refrescante de arrayán, mango y tamarindo de temporada. Coronada con el toque perfecto y nostálgico de nuestro alhuashte artesanal y un sutil picante de chile que despierta los sentidos. Es la combinación perfecta entre lo dulce, lo ácido y lo saladito; crujiente, atrevida y diseñada para refrescar hasta el día más caluroso. ¡Sabe a vacación salvadoreña!" data-imagen="☀️" data-categoria="Las Antojadas 🌶️">
+                <div class="sabor-img-placeholder">☀️</div>
                 <div class="sabor-info">
-                    <h3>Sol de playa</h3>
+                    <h3>Sol de Playa</h3>
                     <p>Arrayán, mango y tamarindo con alhuashte y chile.</p>
                 </div>
             </div>
-            
-            <div class="sabor-card">
-                <div class="sabor-img-placeholder" style="background: #ffe5a3;">🥭</div>
+
+            <div class="sabor-card" data-nombre="El Pital" data-descripcion="Inspirada en el punto más alto y fresco de El Salvador, esta paleta es un tributo a la tradición cremosa. Imagina la suavidad untuosa de la fresa con leche entrelazada con el toque tropical y reconfortante del coco con leche, acompañados por el sabor único, exótico y dulce del marañón. Una delicia densa, suave y artesanal que te envolverá en un abrazo de sabor desde el primer instante." data-imagen="🌲" data-categoria="Las Cremas Tradicionales 🥛">
+                <div class="sabor-img-placeholder">🌲</div>
                 <div class="sabor-info">
-                    <h3>El pital</h3>
+                    <h3>El Pital</h3>
                     <p>Fresa con leche, coco con leche y marañón.</p>
                 </div>
             </div>
-            
-            <div class="sabor-card">
-                <div class="sabor-img-placeholder" style="background: #e2f0cb;">💻</div>
+
+            <div class="sabor-card" data-nombre="Erupción Ilamatepec" data-descripcion="Inspirada en la majestuosidad de nuestro imponente volcán de Santa Ana. Esta joya combina la fuerza y el aroma del mejor café con leche de nuestras cordilleras con un río espeso y reconfortante de chocolate con leche premium. Una fusión cremosa, con un equilibrio perfecto entre la energía del café y la tentación del chocolate. ¡Una erupción de puro placer!" data-imagen="🌋" data-categoria="Línea Gourmet ☕🍫">
+                <div class="sabor-img-placeholder">🌋</div>
                 <div class="sabor-info">
                     <h3>Erupción Ilamatepec</h3>
                     <p>Café con leche y chocolate con leche.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="sabor-modal" class="modal-overlay">
+            <div class="modal-wrapper">
+                <button type="button" class="modal-cerrar-btn">&times;</button>
+                <div class="modal-cuerpo">
+                    <div id="modal-icono" class="modal-ilustracion">☀️</div>
+                    <span id="modal-categoria" class="modal-tag">Categoría</span>
+                    <h3 id="modal-titulo">Nombre de la Paleta</h3>
+                    <p id="modal-descripcion">Descripción extendida de la paleta...</p>
                 </div>
             </div>
         </div>
