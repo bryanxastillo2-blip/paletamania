@@ -256,5 +256,60 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script src="js/app.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("sabor-modal");
+    const modalTitulo = document.getElementById("modal-titulo");
+    const modalDescripcion = document.getElementById("modal-descripcion");
+    const modalIcono = document.getElementById("modal-icono");
+    const modalCategoria = document.getElementById("modal-categoria");
+    const botonCerrar = document.querySelector(".modal-cerrar-btn");
+    const tarjetasSabor = document.querySelectorAll(".sabor-card");
+
+    // 1. Abrir Modal al presionar una tarjeta
+    tarjetasSabor.forEach(tarjeta => {
+        tarjeta.addEventListener("click", () => {
+            // Extraer datos guardados en el HTML
+            const nombre = tarjeta.getAttribute("data-nombre");
+            const descripcion = tarjeta.getAttribute("data-descripcion");
+            const icono = tarjeta.getAttribute("data-imagen");
+            const categoria = tarjeta.getAttribute("data-categoria");
+
+            // Inyectar datos dinámicamente en el modal
+            modalTitulo.textContent = nombre;
+            modalDescripcion.textContent = descripcion;
+            modalIcono.textContent = icono;
+            modalCategoria.textContent = categoria;
+
+            // Mostrar modal con animación fluida
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden"; // Detiene el scroll del fondo
+        });
+    });
+
+    // 2. Función para cerrar el modal de forma limpia
+    const cerrarModalDetalle = () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto"; // Devuelve el scroll al body
+    };
+
+    // Cerrar al dar clic en la equis (&times;)
+    botonCerrar.addEventListener("click", cerrarModalDetalle);
+
+    // Cerrar si se hace clic en la zona difuminada exterior
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            cerrarModalDetalle();
+        }
+    });
+
+    // Cerrar con la tecla Escape del teclado físico
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+            cerrarModalDetalle();
+        }
+    });
+});
+    </script>
 </body>
 </html>
