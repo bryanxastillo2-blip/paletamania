@@ -986,10 +986,22 @@ footer p {
     }
 
     /* Ajuste de contenedores del Mapa y los Formularios */
-    .mapa-wrapper {
-        min-height: 300px;
-        width: 100%;
-    }
+.mapa-wrapper {
+    min-height: 350px; /* Define una altura fija adecuada para pantallas de celular */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Forzar al mapa de Google a llenar por completo el contenedor redondo */
+.mapa-wrapper iframe {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
 
     .ubicacion-info, .formulario-contacto-box, .formulario-reseña-box {
         padding: 25px 20px;
