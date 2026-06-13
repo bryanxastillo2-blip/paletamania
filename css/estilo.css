@@ -627,10 +627,9 @@ h2 {
     display: none; /* Chrome/Safari */
 }
 
-/* 
-   ¡SOLUCIÓN AQUÍ! 
-   Como tu JS inyecta bloques dinámicos directamente (h4, div, p), 
-   le damos las propiedades de "tarjeta" a cada elemento hijo directo del contenedor.
+/* ¡SOLUCIÓN AQUÍ! 
+    Como tu JS inyecta bloques dinámicos directamente (h4, div, p), 
+    le damos las propiedades de "tarjeta" a cada elemento hijo directo del contenedor.
 */
 .grid-reseñas > div, 
 .tarjeta-reseña {
@@ -885,34 +884,128 @@ footer p {
     color: var(--principal);
 }
 
-/* --- MEDIA QUERIES PARA CELULARES --- */
-@media (max-width: 768px) {
+/* ==========================================================================
+   11. MEDIA QUERIES (ADAPTACIÓN RESPONSIVA COMPLETA)
+   ========================================================================== */
+
+/* Tablets y pantallas medianas (Hasta 992px) */
+@media (max-width: 992px) {
     header {
         padding: 15px 5%;
     }
-    
+    .hero h1 {
+        font-size: 44px;
+    }
+    .nosotros-contenedor-flex, .contacto-flex, .ubicacion-contenedor-flex {
+        gap: 30px;
+    }
+    /* El carrete pasa a mostrar 2 tarjetas bien distribuidas */
+    .grid-reseñas > div, .tarjeta-reseña {
+        flex: 0 0 calc(50% - 15px);
+    }
+}
+
+/* Celulares y pantallas pequeñas (Hasta 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+        text-align: center;
+    }
+
     header nav {
-        display: none; /* Ideal para desarrollo posterior de menú hamburguesa */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    header nav a, .dropbtn {
+        margin-left: 0;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .dropdown-content {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero {
+        height: 85vh;
     }
 
     .hero h1 {
-        font-size: 36px;
+        font-size: 34px;
     }
 
     .hero p {
         font-size: 16px;
     }
 
-    .nosotros-contenedor-flex, .contacto-flex, .ubicacion-contenedor-flex {
+    .hero-logo-center {
+        height: 100px;
+    }
+
+    /* Transformación de todas las columnas Flexbox en una sola fila vertical */
+    .nosotros-contenedor-flex, 
+    .contacto-flex, 
+    .ubicacion-contenedor-flex, 
+    .contenedor-videos-flex {
         flex-direction: column;
-        gap: 30px;
+        gap: 35px;
+    }
+
+    /* Ajuste para los vídeos de Storytelling */
+    .tarjeta-video {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+    
+    .video-wrapper {
+        height: 380px;
+    }
+
+    /* Reordenamiento estético: foto arriba del texto descriptivo */
+    .nosotros-imagen-wrapper {
+        order: -1;
+        width: 100%;
     }
 
     .disciplinas-grid {
         grid-template-columns: 1fr;
     }
 
+    /* CARRETE DE RESEÑAS DINÁMICAS EN MÓVIL: Se ajusta al 100% para deslizar fluidamente de una en una */
+    .grid-reseñas > div, 
+    .tarjeta-reseña {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+
+    /* Ajuste de contenedores del Mapa y los Formularios */
     .mapa-wrapper {
-        min-height: 350px;
+        min-height: 300px;
+        width: 100%;
+    }
+
+    .ubicacion-info, .formulario-contacto-box, .formulario-reseña-box {
+        padding: 25px 20px;
+    }
+}
+
+/* Celulares muy compactos (Hasta 480px) */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 28px;
+    }
+    .hero h1 {
+        font-size: 26px;
+    }
+    .btn-principal {
+        padding: 12px 25px;
+        font-size: 15px;
     }
 }
