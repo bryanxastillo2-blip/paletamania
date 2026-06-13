@@ -1,496 +1,595 @@
 /* ==========================================================================
-   1. VARIABLES DE COLOR Y RESET DE ESTILOS
-   ========================================================================== */
+   1. VARIABLES, PALETA DE COLORES Y RESET
+   ========================================================================== */
 :root {
-    --principal: #00bcac;         /* Turquesa/Cian vibrante del logo */
-    --principal-oscuro: #009689;  /* Turquesa oscuro para efectos hover */
-    --secundario: #ffcc00;        /* Amarillo sol brillante */
-    --acentos: #ff7f50;           /* Coral/Salmón del palito de la paleta */
-    --fondo: #fff0db;             /* Crema suave para el fondo general */
-    --tarjetas-bg: #ffffff;       /* Blanco puro para los contenedores */
-    --texto: #1f3a38;             /* Contraste oscuro basado en el verde azulado */
-    --texto-suave: #526b68;       /* Tono intermedio para descripciones largas */
+    --primario: #00BCAC;        /* Turquesa Paletamanía */
+    --primario-oscuro: #1F3A38; /* Contraste Oscuro / Tipografías principales */
+    --secundario: #FF6B6B;      /* Coral / Acento y llamados a la acción */
+    --fondo: #FAFAF6;           /* Crema Suave / Fondo Alterno */
+    --tarjetas-bg: #FFFFFF;     /* Blanco Puro / Fondo Alterno */
+    --texto-oscuro: #2D3748;    /* Cuerpo del texto */
+    --texto-claro: #718096;     /* Subtítulos y textos secundarios */
+    --transicion: all 0.3s ease;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--fondo);
-    color: var(--texto);
-    line-height: 1.6;
+    background-color: var(--fondo);
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Utilities */
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primario-oscuro);
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primario);
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 /* ==========================================================================
-   2. HEADER / BARRA DE NAVEGACIÓN
-   ========================================================================== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 10%;
-    background-color: var(--tarjetas-bg);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 20px rgba(31, 58, 56, 0.05);
+   2. NAVBAR & NAVEGACIÓN
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: var(--tarjetas-bg);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 
-.logo-contenedor {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
 }
 
 .logo-img {
-    height: 45px;
-    width: auto;
-    display: block;
+    height: 45px;
+    width: auto;
 }
 
-.logo-texto {
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--texto);
-    letter-spacing: -0.5px;
+.brand-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primario);
+    letter-spacing: -0.5px;
 }
 
-.logo-texto span {
-    color: var(--principal);
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
 }
 
-header nav {
-    display: flex;
-    align-items: center;
+.nav-links a {
+    text-decoration: none;
+    color: var(--primario-oscuro);
+    font-weight: 500;
+    transition: var(--transicion);
 }
 
-header nav a, .dropbtn {
-    margin-left: 25px;
-    text-decoration: none;
-    color: var(--texto-suave);
-    font-weight: 600;
-    font-size: 15px;
-    transition: color 0.3s ease;
-    background: none;
-    border: none;
-    font-family: inherit;
-    cursor: pointer;
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--primario);
 }
 
-header nav a:hover, .dropdown:hover .dropbtn {
-    color: var(--principal);
+/* Menú Hamburguesa para Móviles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
 }
 
-/* ==========================================================================
-   3. MENÚ DESPLEGABLE (DROPDOWN CORREGIDO - SIN CIERRES ACCIDENTALES)
-   ========================================================================== */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn i {
-    font-size: 12px;
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-}
-
-.dropdown:hover .dropbtn i {
-    transform: rotate(180deg);
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%; 
-    right: 0;
-    background-color: var(--tarjetas-bg);
-    min-width: 160px;
-    box-shadow: 0 8px 20px rgba(31, 58, 56, 0.15);
-    border-radius: 12px;
-    z-index: 100;
-    overflow: hidden;
-}
-
-.dropdown::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 25px;
-    background: transparent;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    color: var(--texto-suave);
-    padding: 12px 20px;
-    text-decoration: none;
-    display: block;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    margin-left: 0;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: var(--fondo);
-    color: var(--principal);
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primario-oscuro);
+    border-radius: 3px;
+    transition: var(--transicion);
 }
 
 /* ==========================================================================
-   4. SECCIÓN HERO (INICIO)
-   ========================================================================== */
+   3. HERO SECTION (BIENVENIDA)
+   ========================================================================== */
 .hero {
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../img/paleta1.jpeg') no-repeat center center/cover;
+    height: 100vh;
+    background: linear-gradient(rgba(31, 58, 56, 0.55), rgba(31, 58, 56, 0.75)), url('../img/paleta1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
 }
 
-.hero-content-centered {
-    max-width: 750px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeInUp 1s ease-out;
+.hero-content {
+    max-width: 800px;
+    animation: fadeInUp 1s ease;
 }
 
-.hero-logo-center {
-    height: 130px;
-    width: auto;
-    margin-bottom: 25px;
-    filter: drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.4));
+.hero-content h1 {
+    font-size: 58px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    line-height: 1.2;
 }
 
-.hero h1 {
-    font-size: 52px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #ffffff;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 35px;
+    opacity: 0.95;
+    font-weight: 300;
 }
 
-.hero p {
-    font-size: 19px;
-    color: #f5f5f5;
-    margin-bottom: 35px;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+.btn-primario {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: var(--primario);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transicion);
+    box-shadow: 0 4px 15px rgba(0, 188, 172, 0.4);
+    border: none;
+    cursor: pointer;
 }
 
-.btn-principal {
-    display: inline-block;
-    padding: 14px 35px;
-    background-color: var(--secundario);
-    color: var(--texto);
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 700;
-    box-shadow: 0 5px 20px rgba(255, 204, 0, 0.35);
-    transition: all 0.3s ease;
-}
-
-.btn-principal:hover {
-    background-color: var(--principal);
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 188, 172, 0.4);
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.btn-primario:hover {
+    transform: translateY(-3px);
+    background-color: #00a395;
+    box-shadow: 0 6px 20px rgba(0, 188, 172, 0.6);
 }
 
 /* ==========================================================================
-   5. TÍTULOS GLOBALES Y SECCIONES
-   ========================================================================== */
-h2 {
-    text-align: center;
-    font-size: 36px;
-    color: var(--texto);
-    margin-bottom: 5px;
-    font-weight: 700;
-}
-
-.subtitulo {
-    text-align: center;
-    color: var(--principal);
-    font-weight: 600;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 50px;
-}
-
-/* --- Creamos Historias (Beneficios) --- */
+   4. SECCIÓN: BENEFICIOS (Creamos Historias)
+   ========================================================================== */
 .beneficios {
-    padding: 80px 10%;
-    background-color: var(--tarjetas-bg);
+    padding: 100px 10%;
+    background-color: var(--tarjetas-bg); /* Fondo Blanco Puro */
 }
 
-.contenedor-tarjetas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .tarjeta-beneficio {
-    background-color: var(--fondo);
-    padding: 40px 30px;
-    border-radius: 20px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0, 188, 172, 0.08);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: var(--fondo); /* Fondo Crema Suave */
+    padding: 45px 30px;
+    border-radius: 24px;
+    text-align: center;
+    transition: var(--transicion);
+    border: 1px solid rgba(0, 188, 172, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .tarjeta-beneficio:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(31, 58, 56, 0.08);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.04);
+    border-color: rgba(0, 188, 172, 0.2);
 }
 
-.beneficio-img-wrapper {
-    width: 95px;
-    height: 95px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 20px;
-    border: 3px solid var(--secundario);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.beneficio-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.tarjeta-beneficio i {
+    font-size: 44px;
+    color: var(--primario);
+    margin-bottom: 22px;
 }
 
 .tarjeta-beneficio h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: var(--texto);
-    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--primario-oscuro);
+    font-size: 22px;
+    font-weight: 600;
 }
 
 .tarjeta-beneficio p {
-    color: var(--texto-suave);
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* --- Nuestras Delicias (Catálogo Interactiva) --- */
-.catalogo {
-    padding: 80px 10%;
-}
-
-.contenedor-sabores {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.sabor-card {
-    background: var(--tarjetas-bg);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.02);
-    display: flex;
-    flex-direction: column;
-    cursor: pointer; /* Indica que se puede cliquear */
-}
-
-.sabor-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 30px rgba(0, 188, 172, 0.15);
-}
-
-.sabor-img-placeholder {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 64px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
-    background-color: #fafafa;
-}
-
-.sabor-info {
-    padding: 25px;
-    text-align: center;
-}
-
-.sabor-info h3 {
-    font-size: 20px;
-    color: var(--texto);
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.sabor-info p {
-    color: var(--texto-suave);
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* --- ESTILOS COMPLETOS DEL MODAL DETALLE DE SABORES --- */
-.modal-overlay {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(31, 58, 56, 0.5); /* Fondo verde oscuro traslúcido */
-    backdrop-filter: blur(8px);               /* Efecto de desenfoque moderno */
-    z-index: 2000;                            /* Por encima de la navegación */
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* Clase activa manejada por JS */
-.modal-overlay.active {
-    display: flex;
-    opacity: 1;
-}
-
-.modal-wrapper {
-    background-color: var(--tarjetas-bg);
-    width: 100%;
-    max-width: 500px;
-    border-radius: 24px;
-    padding: 40px 30px;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(31, 58, 56, 0.25);
-    transform: translateY(-3px);
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(0, 188, 172, 0.1);
-}
-
-.modal-cerrar-btn {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: var(--texto-suave);
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.modal-cerrar-btn:hover {
-    color: var(--acentos);
-}
-
-.modal-cuerpo {
-    text-align: center;
-}
-
-.modal-ilustracion {
-    font-size: 70px;
-    margin-bottom: 15px;
-}
-
-.modal-tag {
-    display: inline-block;
-    padding: 6px 16px;
-    background-color: var(--fondo);
-    color: var(--texto-suave);
-    font-size: 12px;
-    font-weight: 700;
-    border-radius: 30px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 15px;
-}
-
-#modal-titulo {
-    font-size: 26px;
-    color: var(--texto);
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-#modal-descripcion {
-    font-size: 15px;
-    color: var(--texto-suave);
-    line-height: 1.7;
+    color: var(--texto-claro);
+    font-size: 15px;
 }
 
 /* ==========================================================================
-   5.5 SECCIÓN STORYTELLING (VIDEOS - ALTERNATIVA INTELIGENTE MULTIFORMATO)
-   ========================================================================== */
-.historias-video-seccion {
-    padding: 80px 10%;
-    background-color: var(--tarjetas-bg); /* Fondo blanco para contrastar con el crema general */
+   5. SECCIÓN: CATÁLOGO (Nuestras Delicias)
+   ========================================================================== */
+.catalogo {
+    padding: 100px 10%;
+    background-color: var(--fondo); /* Fondo Crema Suave */
 }
 
-.contenedor-videos-flex {
-    display: flex;
-    justify-content: center;
-    gap: 25px; /* Espaciado unificado idéntico al de reseñas */
-    max-width: 1200px;
-    margin: 40px auto 0 auto;
-    width: 100%;
+.sabores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+}
+
+.sabor-card {
+    background: var(--tarjetas-bg); /* Fondo Blanco Puro */
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: var(--transicion);
+    border: 1px solid rgba(0, 0, 0, 0.01);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.sabor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.sabor-img-wrapper {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    position: relative;
+}
+
+.sabor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.sabor-card:hover .sabor-img {
+    transform: scale(1.08);
+}
+
+.sabor-info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.sabor-tag {
+    align-self: flex-start;
+    padding: 6px 16px;
+    background-color: rgba(0, 188, 172, 0.08);
+    color: var(--primario);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.sabor-info h3 {
+    color: var(--primario-oscuro);
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.sabor-info p {
+    color: var(--texto-claro);
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   6. SECCIÓN: STORYTELLING (Historias Detrás de Cada Sabor)
+   ========================================================================== */
+.historias-video-seccion {
+    padding: 100px 10%;
+    background-color: var(--tarjetas-bg); /* Fondo Blanco Puro */
+}
+
+.videos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
 }
 
 .tarjeta-video {
-    flex: 1 1 calc(33.333% - 25px); /* Se divide perfectamente en 3 columnas */
-    min-width: 300px; /* Evita que colapsen las tarjetas en pantallas medianas */
-    background-color: var(--fondo); /* Fondo crema suave para la tarjeta */
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(31, 58, 56, 0.04);
-    border: 1px solid rgba(0, 188, 172, 0.05);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--fondo); /* Fondo Crema Suave */
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(31, 58, 56, 0.03);
+    border: 1px solid rgba(0, 188, 172, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transicion);
 }
 
 .tarjeta-video:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 188, 172, 0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(31, 58, 56, 0.08);
 }
 
-/* Contenedor inteligente: Mantiene las tarjetas alineadas sin importar si el video es horizontal o vertical */
 .video-wrapper {
-    width: 100%;
-    height: 450px; /* Altura estándar simétrica fija */
-    background-color: #000000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding-top: 177.77%; /* Formato Vertical 9:16 para Reels */
+    background-color: #050a0a;
 }
 
 .video-wrapper video {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-   }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-video {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-video h3 {
+    font-size: 20px;
+    color: var(--primario-oscuro);
+    font-weight: 700;
+}
+
+.info-video p {
+    font-size: 14.5px;
+    color: var(--texto-claro);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   7. SECCIÓN: SOBRE NOSOTROS
+   ========================================================================== */
+.sobre-nosotros {
+    padding: 100px 10%;
+    background-color: var(--fondo); /* Fondo Crema Suave */
+}
+
+.nosotros-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nosotros-content p {
+    font-size: 17px;
+    color: var(--texto-oscuro);
+    margin-bottom: 30px;
+}
+
+.disciplinas-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.disciplina-tag {
+    background-color: var(--tarjetas-bg); /* Resalta en Blanco Puro */
+    padding: 12px 24px;
+    border-radius: 16px;
+    font-weight: 600;
+    color: var(--primario-oscuro);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0, 0, 0, 0.01);
+    transition: var(--transicion);
+}
+
+.disciplina-tag:hover {
+    color: var(--primario);
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   8. INTERACTIVIDAD: MODALES DINÁMICOS (SABORES)
+   ========================================================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 58, 56, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: var(--tarjetas-bg);
+    width: 90%;
+    max-width: 650px;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    position: relative;
+    transform: scale(0.85);
+    transition: transform 0.4s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primario-oscuro);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    transition: var(--transicion);
+}
+
+.modal-close:hover {
+    background-color: var(--secundario);
+    color: white;
+}
+
+.modal-body {
+    padding: 40px;
+}
+
+/* ==========================================================================
+   9. FOOTER (PIE DE PÁGINA)
+   ========================================================================== */
+footer {
+    background-color: var(--primario-oscuro);
+    color: white;
+    padding: 60px 10% 30px;
+    text-align: center;
+}
+
+.footer-content {
+    margin-bottom: 30px;
+}
+
+.footer-brand {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--primario);
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: var(--transicion);
+}
+
+.footer-links a:hover {
+    color: var(--primario);
+}
+
+.footer-content p {
+    opacity: 0.5;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   10. MEDIA QUERIES (DISEÑO RESPONSIVO)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+    .hero-content h1 {
+        font-size: 46px;
+    }
+    .beneficios, .catalogo, .historias-video-seccion, .sobre-nosotros {
+        padding: 80px 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--tarjetas-bg);
+        flex-direction: column;
+        padding: 30px;
+        gap: 20px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        display: none; /* Se activa con JS alternando la clase 'show' */
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 17px;
+    }
+
+    .modal-body {
+        padding: 25px;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
