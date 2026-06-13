@@ -959,3 +959,86 @@ footer .redes a:hover {
         height: 350px; 
     }
 }
+
+/* ==========================================================================
+   6.5 SECCIÓN UBICACIÓN
+   ========================================================================== */
+.ubicacion-seccion {
+    padding: 80px 10%;
+    background-color: var(--fondo); /* Fondo crema para contrastar con el blanco de la par */
+}
+
+.ubicacion-contenedor-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    width: 100%;
+}
+
+.ubicacion-info {
+    flex: 1;
+    text-align: left;
+}
+
+.ubicacion-info h3 {
+    font-size: 26px;
+    color: var(--texto);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.descripcion-ubicacion {
+    color: var(--texto-suave);
+    font-size: 15px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.puntos-referencia {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.punto-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.punto-item i {
+    font-size: 22px;
+    color: var(--principal);
+    margin-top: 3px;
+    background-color: var(--tarjetas-bg);
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 188, 172, 0.1);
+}
+
+.punto-item h4 {
+    font-size: 16px;
+    color: var(--texto);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.punto-item p {
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Contenedor del Mapa */
+.mapa-wrapper {
+    flex: 1;
+    height: 450px; /* Misma altura que la alternativa inteligente de los videos */
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(31, 58, 56, 0.08);
+    border: 4px solid var(--tarjetas-bg); /* Marco blanco elegante */
+    background-color: #e5e3df;
+}
