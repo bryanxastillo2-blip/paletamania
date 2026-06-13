@@ -1,15 +1,14 @@
 /* ==========================================================================
-   1. VARIABLES DE COLOR Y RESET DE ESTILOS
+   1. VARIABLES Y CONFIGURACIÓN INICIAL
    ========================================================================== */
 :root {
-    --principal: #00bcac;         /* Turquesa/Cian vibrante del logo */
-    --principal-oscuro: #009689;  /* Turquesa oscuro para efectos hover */
-    --secundario: #ffcc00;        /* Amarillo sol brillante */
-    --acentos: #ff7f50;           /* Coral/Salmón del palito de la paleta */
-    --fondo: #fff0db;             /* Crema suave para el fondo general */
-    --tarjetas-bg: #ffffff;       /* Blanco puro para los contenedores */
-    --texto: #1f3a38;             /* Contraste oscuro basado en el verde azulado */
-    --texto-suave: #526b68;       /* Tono intermedio para descripciones largas */
+    --primario: #00BCAC;        /* Turquesa Paletamanía */
+    --primario-oscuro: #1F3A38; /* Contraste Oscuro */
+    --secundario: #FF6B6B;      /* Coral / Acento */
+    --fondo: #FAFAF6;           /* Crema Suave / Fondo Alterno */
+    --tarjetas-bg: #FFFFFF;     /* Blanco Puro / Fondo Alterno */
+    --texto-oscuro: #2D3748;
+    --texto-claro: #718096;
 }
 
 * {
@@ -17,240 +16,138 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--fondo);
-    color: var(--texto);
+    color: var(--texto-oscuro);
     line-height: 1.6;
 }
 
 /* ==========================================================================
-   2. HEADER / BARRA DE NAVEGACIÓN
+   2. NAVBAR & NAVEGACIÓN
    ========================================================================== */
-header {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 10%;
+    padding: 20px 10%;
     background-color: var(--tarjetas-bg);
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(31, 58, 56, 0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 
-.logo-contenedor {
+.logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .logo-img {
     height: 45px;
     width: auto;
-    display: block;
 }
 
-.logo-texto {
-    font-size: 26px;
+.brand-name {
+    font-size: 24px;
     font-weight: 700;
-    color: var(--texto);
-    letter-spacing: -0.5px;
+    color: var(--primario);
 }
 
-.logo-texto span {
-    color: var(--principal);
-}
-
-header nav {
+.nav-links {
     display: flex;
-    align-items: center;
+    list-style: none;
+    gap: 30px;
 }
 
-header nav a, .dropbtn {
-    margin-left: 25px;
+.nav-links a {
     text-decoration: none;
-    color: var(--texto-suave);
-    font-weight: 600;
-    font-size: 15px;
-    transition: color 0.3s ease;
-    background: none;
-    border: none;
-    font-family: inherit;
-    cursor: pointer;
+    color: var(--primario-oscuro);
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-header nav a:hover, .dropdown:hover .dropbtn {
-    color: var(--principal);
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--primario);
 }
 
 /* ==========================================================================
-   3. MENÚ DESPLEGABLE (DROPDOWN CORREGIDO - SIN CIERRES ACCIDENTALES)
-   ========================================================================== */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn i {
-    font-size: 12px;
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-}
-
-.dropdown:hover .dropbtn i {
-    transform: rotate(180deg);
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%; 
-    right: 0;
-    background-color: var(--tarjetas-bg);
-    min-width: 160px;
-    box-shadow: 0 8px 20px rgba(31, 58, 56, 0.15);
-    border-radius: 12px;
-    z-index: 100;
-    overflow: hidden;
-}
-
-.dropdown::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 25px;
-    background: transparent;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    color: var(--texto-suave);
-    padding: 12px 20px;
-    text-decoration: none;
-    display: block;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    margin-left: 0;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: var(--fondo);
-    color: var(--principal);
-}
-
-/* ==========================================================================
-   4. SECCIÓN HERO (INICIO)
+   3. HERO SECTION (BIENVENIDA)
    ========================================================================== */
 .hero {
-    height: 90vh;
+    height: 100vh;
+    background: linear-gradient(rgba(31, 58, 56, 0.5), rgba(31, 58, 56, 0.7)), url('../img/paleta1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: white;
     padding: 0 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../img/paleta1.jpeg') no-repeat center center/cover;
+    margin-top: -80px;
 }
 
-.hero-content-centered {
-    max-width: 750px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeInUp 1s ease-out;
-}
-
-.hero-logo-center {
-    height: 130px;
-    width: auto;
-    margin-bottom: 25px;
-    filter: drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.4));
-}
-
-.hero h1 {
-    font-size: 52px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #ffffff;
+.hero-content h1 {
+    font-size: 56px;
+    font-weight: 800;
     margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    letter-spacing: -1px;
 }
 
-.hero p {
-    font-size: 19px;
-    color: #f5f5f5;
-    margin-bottom: 35px;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.btn-principal {
+.btn-primario {
     display: inline-block;
-    padding: 14px 35px;
-    background-color: var(--secundario);
-    color: var(--texto);
+    padding: 15px 35px;
+    background-color: var(--primario);
+    color: white;
     text-decoration: none;
-    border-radius: 30px;
-    font-weight: 700;
-    box-shadow: 0 5px 20px rgba(255, 204, 0, 0.35);
-    transition: all 0.3s ease;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 188, 172, 0.4);
 }
 
-.btn-principal:hover {
-    background-color: var(--principal);
-    color: #ffffff;
+.btn-primario:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 188, 172, 0.4);
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    background-color: #00a395;
 }
 
 /* ==========================================================================
-   5. TÍTULOS GLOBALES Y SECCIONES
+   4. SECCIÓN: BENEFICIOS (Creamos Historias)
    ========================================================================== */
-h2 {
-    text-align: center;
-    font-size: 36px;
-    color: var(--texto);
-    margin-bottom: 5px;
-    font-weight: 700;
+.beneficios {
+    padding: 80px 10%;
+    background-color: var(--tarjetas-bg); /* Fondo Blanco Puro */
 }
 
-.subtitulo {
+.section-title {
     text-align: center;
-    color: var(--principal);
-    font-weight: 600;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 36px;
+    color: var(--primario-oscuro);
     margin-bottom: 50px;
 }
 
-/* --- Creamos Historias (Beneficios) --- */
-.beneficios {
-    padding: 80px 10%;
-    background-color: var(--tarjetas-bg);
-}
-
-.contenedor-tarjetas {
+.beneficios-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
 .tarjeta-beneficio {
-    background-color: var(--fondo);
+    background-color: var(--fondo); /* Fondo Crema Suave para contrastar */
     padding: 40px 30px;
     border-radius: 20px;
     text-align: center;
@@ -262,54 +159,37 @@ h2 {
 }
 
 .tarjeta-beneficio:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(31, 58, 56, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
-.beneficio-img-wrapper {
-    width: 95px;
-    height: 95px;
-    border-radius: 50%;
-    overflow: hidden;
+.tarjeta-beneficio i {
+    font-size: 40px;
+    color: var(--primario);
     margin-bottom: 20px;
-    border: 3px solid var(--secundario);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.beneficio-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
 }
 
 .tarjeta-beneficio h3 {
-    font-size: 20px;
     margin-bottom: 15px;
-    color: var(--texto);
-    font-weight: 700;
+    color: var(--primario-oscuro);
 }
 
-.tarjeta-beneficio p {
-    color: var(--texto-suave);
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* --- Nuestras Delicias (Catálogo Interactiva) --- */
+/* ==========================================================================
+   5. SECCIÓN: CATÁLOGO (Nuestras Delicias)
+   ========================================================================== */
 .catalogo {
     padding: 80px 10%;
+    background-color: var(--fondo); /* Cambiado a Crema Suave para alternar */
 }
 
-.contenedor-sabores {
+.sabores-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 40px;
 }
 
 .sabor-card {
-    background: var(--tarjetas-bg);
+    background: var(--tarjetas-bg); /* Cambiado a Blanco Puro para resaltar */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
@@ -317,151 +197,60 @@ h2 {
     border: 1px solid rgba(0, 0, 0, 0.02);
     display: flex;
     flex-direction: column;
-    cursor: pointer; /* Indica que se puede cliquear */
+    cursor: pointer;
 }
 
 .sabor-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 30px rgba(0, 188, 172, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
-.sabor-img-placeholder {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 64px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
-    background-color: #fafafa;
+.sabor-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
 .sabor-info {
     padding: 25px;
-    text-align: center;
 }
 
 .sabor-info h3 {
-    font-size: 20px;
-    color: var(--texto);
+    color: var(--primario-oscuro);
     margin-bottom: 10px;
-    font-weight: 700;
+    font-size: 22px;
 }
 
-.sabor-info p {
-    color: var(--texto-suave);
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* --- ESTILOS COMPLETOS DEL MODAL DETALLE DE SABORES --- */
-.modal-overlay {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(31, 58, 56, 0.5); /* Fondo verde oscuro traslúcido */
-    backdrop-filter: blur(8px);               /* Efecto de desenfoque moderno */
-    z-index: 2000;                            /* Por encima de la navegación */
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* Clase activa manejada por JS */
-.modal-overlay.active {
-    display: flex;
-    opacity: 1;
-}
-
-.modal-wrapper {
-    background-color: var(--tarjetas-bg);
-    width: 100%;
-    max-width: 500px;
-    border-radius: 24px;
-    padding: 40px 30px;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(31, 58, 56, 0.25);
-    transform: translateY(-3px);
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(0, 188, 172, 0.1);
-}
-
-.modal-cerrar-btn {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: var(--texto-suave);
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.modal-cerrar-btn:hover {
-    color: var(--acentos);
-}
-
-.modal-cuerpo {
-    text-align: center;
-}
-
-.modal-ilustracion {
-    font-size: 70px;
-    margin-bottom: 15px;
-}
-
-.modal-tag {
+.sabor-tag {
     display: inline-block;
-    padding: 6px 16px;
-    background-color: var(--fondo);
-    color: var(--texto-suave);
-    font-size: 12px;
-    font-weight: 700;
-    border-radius: 30px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    padding: 5px 15px;
+    background-color: rgba(0, 188, 172, 0.1);
+    color: var(--primario);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
     margin-bottom: 15px;
-}
-
-#modal-titulo {
-    font-size: 26px;
-    color: var(--texto);
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-#modal-descripcion {
-    font-size: 15px;
-    color: var(--texto-suave);
-    line-height: 1.7;
 }
 
 /* ==========================================================================
-   5.5 SECCIÓN STORYTELLING (VIDEOS - ALTERNATIVA INTELIGENTE MULTIFORMATO)
+   6. SECCIÓN: STORYTELLING (Historias Detrás de Cada Sabor)
    ========================================================================== */
 .historias-video-seccion {
     padding: 80px 10%;
-    background-color: var(--tarjetas-bg); /* Fondo blanco para contrastar con el crema general */
+    background-color: var(--tarjetas-bg); /* Cambiado a Blanco Puro para continuar alternancia */
 }
 
-.contenedor-videos-flex {
+.videos-container {
     display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
     justify-content: center;
-    gap: 25px; /* Espaciado unificado idéntico al de reseñas */
-    max-width: 1200px;
-    margin: 40px auto 0 auto;
-    width: 100%;
 }
 
 .tarjeta-video {
-    flex: 1 1 calc(33.333% - 25px); /* Se divide perfectamente en 3 columnas */
-    min-width: 300px; /* Evita que colapsen las tarjetas en pantallas medianas */
-    background-color: var(--fondo); /* Fondo crema suave para la tarjeta */
+    flex: 1 1 calc(33.333% - 25px);
+    min-width: 300px;
+    background-color: var(--fondo); /* Cambiado a Fondo Crema Suave */
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(31, 58, 56, 0.04);
@@ -473,572 +262,89 @@ h2 {
 
 .tarjeta-video:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 188, 172, 0.1);
+    box-shadow: 0 15px 35px rgba(31, 58, 56, 0.08);
 }
 
-/* Contenedor inteligente: Mantiene las tarjetas alineadas sin importar si el video es horizontal o vertical */
 .video-wrapper {
-    width: 100%;
-    height: 450px; /* Altura estándar simétrica fija */
-    background-color: #000000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    overflow: hidden;
+    width: 100%;
+    padding-top: 177.77%; /* Formato Vertical 9:16 ideal para Reels/TikTok */
+    background-color: #000;
 }
 
 .video-wrapper video {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover; /* Adapta el contenido fluidamente rellenando todo el espacio sin deformarse */
-}
-
-.video-info {
-    padding: 25px;
-    text-align: left;
-}
-
-.video-info h3 {
-    font-size: 20px;
-    color: var(--texto);
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.video-info p {
-    color: var(--texto-suave);
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* --- Sobre Nosotros --- */
-.sobre-nosotros {
-    padding: 100px 10%;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(rgba(255, 240, 219, 0.9), rgba(255, 240, 219, 0.9)), url('../img/grupo.png') no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.nosotros-contenedor-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.nosotros-contenido {
-    flex: 1.1;
-    text-align: left;
-}
-
-.subtitulo-izq {
-    color: var(--principal);
-    font-weight: 700;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    display: block;
-    text-align: left;
-}
-
-.nosotros-contenido h2 {
-    text-align: left;
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--texto);
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.descripcion-nosotros {
-    color: var(--texto-suave);
-    font-size: 16px;
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-.disciplinas-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    justify-content: start;
-}
-
-.disciplina-tag {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background-color: var(--tarjetas-bg);
-    padding: 14px 20px;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 188, 172, 0.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-    transition: all 0.3s ease;
-}
-
-.disciplina-tag:hover {
-    transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0, 188, 172, 0.15);
-    border-color: var(--principal);
-}
-
-.disciplina-tag i {
-    font-size: 18px;
-    color: var(--principal);
-}
-
-.disciplina-tag span {
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--texto);
-}
-
-.nosotros-imagen-wrapper {
-    flex: 0.9;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.decoracion-fondo {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--secundario);
-    border-radius: 24px;
-    top: 15px;
-    left: 15px;
-    z-index: 1;
-    opacity: 0.4;
+    object-fit: cover; /* Corregido y cerrado con llave */
 }
 
-.foto-equipo {
-    width: 100%;
-    max-height: 420px;
-    object-fit: cover;
-    border-radius: 24px;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 15px 35px rgba(31, 58, 56, 0.1);
-    transition: transform 0.4s ease;
-}
-
-.nosotros-imagen-wrapper:hover .foto-equipo {
-    transform: translateY(-5px);
-}
-
-.bloque-boton-centrado {
-    width: 100%;
-    text-align: center;
-    margin-top: 50px;
-    position: relative;
-    z-index: 10;
-}
-
-/* ==========================================================================
-   6. SECCIÓN RESEÑAS DINÁMICAS (CARRETE DESLIZABLE)
-   ========================================================================== */
-.reseñas-container {
-    padding: 80px 10%;
-    background-color: var(--fondo);
-}
-
-.contenedor-carrete {
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 50px;
-    padding: 10px 5px;
-}
-
-.grid-reseñas {
-    display: flex;
-    gap: 25px;
-    overflow-x: auto;            
-    scroll-snap-type: x mandatory; 
-    padding-bottom: 20px;         
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; 
-}
-
-.tarjeta-comentario {
-    flex: 0 0 320px;              
-    scroll-snap-align: start;     
-    background-color: var(--tarjetas-bg);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(31, 58, 56, 0.04);
-    border: 1px solid rgba(0, 188, 172, 0.05);
-    position: relative;
-    transition: transform 0.3s ease;
-}
-
-.tarjeta-comentario:hover {
-    transform: translateY(-5px);
-}
-
-.grid-reseñas::-webkit-scrollbar {
-    height: 8px;
-}
-
-.grid-reseñas::-webkit-scrollbar-track {
-    background: rgba(0, 188, 172, 0.05);
-    border-radius: 10px;
-}
-
-.grid-reseñas::-webkit-scrollbar-thumb {
-    background: var(--principal);
-    border-radius: 10px;
-}
-
-.grid-reseñas::-webkit-scrollbar-thumb:hover {
-    background: var(--principal-oscuro);
-}
-
-.tarjeta-comentario h4 {
-    color: var(--texto);
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.estrellas-comentario {
-    color: var(--secundario);
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.texto-comentario {
-    color: var(--texto-suave);
-    font-size: 14px;
-    line-height: 1.6;
-    font-style: italic;
-}
-
-.cargando-texto {
-    width: 100%;
-    text-align: center;
-    color: var(--texto-suave);
-    font-weight: 600;
-    padding: 20px 0;
-}
-
-.formulario-reseña-box {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--tarjetas-bg);
-    padding: 40px;
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(31, 58, 56, 0.05);
-    border: 1px solid rgba(0, 188, 172, 0.1);
-}
-
-.formulario-reseña-box h3 {
-    text-align: center;
-    font-size: 20px;
-    color: var(--texto);
-    margin-bottom: 25px;
-    font-weight: 700;
-}
-
-.input-grupo {
-    margin-bottom: 20px;
-}
-
-.input-grupo label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--texto);
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.input-grupo input, 
-.input-grupo select, 
-.input-grupo textarea {
-    width: 100%;
-    padding: 12px 18px;
-    border: 2px solid var(--fondo);
-    background-color: var(--fondo);
-    border-radius: 12px;
-    font-family: inherit;
-    font-size: 14px;
-    color: var(--texto);
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-.input-grupo input:focus, 
-.input-grupo select:focus, 
-.input-grupo textarea:focus {
-    border-color: var(--principal);
-    background-color: #ffffff;
-}
-
-/* ==========================================================================
-   7. SECCIÓN DE CONTACTO (EMAILJS)
-   ========================================================================== */
-.contacto-container {
-    padding: 80px 10%;
-    background-color: var(--tarjetas-bg);
-}
-
-.contacto-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.contacto-info {
-    flex: 1;
-}
-
-.contacto-info h3 {
-    font-size: 24px;
-    color: var(--texto);
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.contacto-descripcion {
-    color: var(--texto-suave);
-    font-size: 15px;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.info-detalles {
+.info-video {
+    padding: 25px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.info-item i {
+.info-video h3 {
     font-size: 20px;
-    color: var(--principal);
-    width: 25px;
-}
-
-.info-item span {
+    color: var(--primario-oscuro);
     font-weight: 600;
-    color: var(--texto);
-    font-size: 15px;
 }
 
-.formulario-contacto-box {
-    flex: 1;
-    background-color: var(--fondo);
-    padding: 40px;
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(31, 58, 56, 0.02);
-}
-
-/* ==========================================================================
-   8. FOOTER / PIE DE PÁGINA
-   ========================================================================== */
-footer {
-    background-color: var(--texto);
-    color: #ffffff;
-    text-align: center;
-    padding: 40px 10%;
-}
-
-footer p {
+.info-video p {
     font-size: 14px;
-    color: #a3bdb9;
-    margin-bottom: 20px;
-}
-
-footer .redes a {
-    color: #ffffff;
-    font-size: 20px;
-    margin: 0 10px;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-footer .redes a:hover {
-    color: var(--secundario);
-    transform: scale(1.2);
-}
-
-/* ==========================================================================
-   9. SECCIÓN RESPONSIVE (MEDIA QUERIES UNIFICADAS)
-   ========================================================================== */
-@media (max-width: 992px) {
-    header {
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
-    }
-    header nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-    header nav a, .dropbtn {
-        margin-left: 10px;
-        margin-right: 10px;
-        font-size: 14px;
-    }
-    .dropdown-content {
-        left: 50%;
-        transform: translateX(-50%);
-        right: auto;
-    }
-    .hero {
-        height: auto;
-        padding: 120px 20px;
-    }
-    .hero h1 { font-size: 36px; }
-    .hero p { font-size: 16px; }
-    .hero-logo-center { height: 100px; }
-    
-    /* Integración Responsiva para el Carrete de Videos */
-    .contenedor-videos-flex {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-    .tarjeta-video {
-        width: 100%;
-        max-width: 600px;
-    }
-    .video-wrapper {
-        height: 400px; /* Reducimos ligeramente la altura en tablets para mejorar proporción */
-    }
-    .video-info {
-        text-align: center;
-    }
-
-    .nosotros-contenedor-flex {
-        flex-direction: column-reverse;
-        gap: 40px;
-    }
-    .nosotros-contenido h2, .subtitulo-izq, .descripcion-nosotros { text-align: center; }
-    .disciplinas-grid { grid-template-columns: 1fr; }
-    .decoracion-fondo { display: none; }
-    .bloque-boton-centrado { margin-top: 40px; }
-    .reseñas-container { padding: 60px 5%; }
-    .formulario-reseña-box { padding: 30px 20px; margin: 0 10px; }
-}
-
-@media (max-width: 768px) {
-    .contacto-flex { flex-direction: column; gap: 40px; }
-    .contacto-info, .formulario-contacto-box { width: 100%; }
-    .contacto-info h3, .contacto-descripcion { text-align: center; }
-}
-
-@media (max-width: 480px) {
-    .reseñas-container { padding: 40px 5%; }
-    .formulario-reseña-box { padding: 25px 15px; }
-    .tarjeta-comentario { flex: 0 0 280px; padding: 20px; }
-    header nav { gap: 5px; }
-    header nav a, .dropbtn { font-size: 13px; margin: 5px; }
-    
-    /* Altura óptima de video en pantallas pequeñas de celular */
-    .video-wrapper {
-        height: 350px; 
-    }
-}
-
-/* ==========================================================================
-   6.5 SECCIÓN UBICACIÓN
-   ========================================================================== */
-.ubicacion-seccion {
-    padding: 80px 10%;
-    background-color: var(--fondo); /* Fondo crema para contrastar con el blanco de la par */
-}
-
-.ubicacion-contenedor-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 40px auto 0 auto;
-    width: 100%;
-}
-
-.ubicacion-info {
-    flex: 1;
-    text-align: left;
-}
-
-.ubicacion-info h3 {
-    font-size: 26px;
-    color: var(--texto);
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.descripcion-ubicacion {
-    color: var(--texto-suave);
-    font-size: 15px;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.puntos-referencia {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.punto-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.punto-item i {
-    font-size: 22px;
-    color: var(--principal);
-    margin-top: 3px;
-    background-color: var(--tarjetas-bg);
-    padding: 12px;
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0, 188, 172, 0.1);
-}
-
-.punto-item h4 {
-    font-size: 16px;
-    color: var(--texto);
-    font-weight: 700;
-    margin-bottom: 4px;
-}
-
-.punto-item p {
-    color: var(--texto-suave);
-    font-size: 14px;
+    color: var(--texto-claro);
     line-height: 1.5;
 }
 
-/* Contenedor del Mapa */
-.mapa-wrapper {
-    flex: 1;
-    height: 450px; /* Misma altura que la alternativa inteligente de los videos */
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(31, 58, 56, 0.08);
-    border: 4px solid var(--tarjetas-bg); /* Marco blanco elegante */
-    background-color: #e5e3df;
+/* ==========================================================================
+   7. SECCIÓN: SOBRE NOSOTROS
+   ========================================================================== */
+.sobre-nosotros {
+    padding: 80px 10%;
+    background-color: var(--fondo); /* Mantiene la alternancia a Crema Suave */
+}
+
+.nosotros-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.disciplinas-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.disciplina-tag {
+    background-color: var(--tarjetas-bg); /* Resalta en Blanco Puro */
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+/* ==========================================================================
+   8. FOOTER (PIE DE PÁGINA)
+   ========================================================================== */
+footer {
+    background-color: var(--primario-oscuro);
+    color: white;
+    padding: 40px 10%20px;
+    text-align: center;
+}
+
+.footer-content {
+    margin-bottom: 20px;
+}
+
+.footer-content p {
+    opacity: 0.8;
+    font-size: 14px;
 }
