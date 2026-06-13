@@ -599,7 +599,7 @@ h2 {
 }
 
 /* ==========================================================================
-   7. SECCIÓN RESEÑAS (RESTAURADO MODO CARRETE)
+   7. SECCIÓN RESEÑAS (CORREGIDO PARA INTERCEPTAR GENERACIÓN DINÁMICA)
    ========================================================================== */
 .reseñas-container {
     padding: 80px 10%;
@@ -610,47 +610,79 @@ h2 {
     max-width: 1200px;
     margin: 0 auto 50px auto;
     position: relative;
-    overflow: hidden; /* Evita que las tarjetas se salgan del contenedor principal */
+    overflow: hidden;
 }
 
-/* CAMBIO CLAVE: De Grid Estático a Flex Horizontal Deslizante */
+/* El contenedor donde tu JS inyecta los datos */
 .grid-reseñas {
     display: flex;
-    gap: 25px;
-    overflow-x: auto; /* Permite el deslizamiento horizontal */
-    scroll-snap-type: x mandatory; /* Hace que el deslizamiento sea magnético y suave */
+    gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     padding: 20px 10px;
-    scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+    scrollbar-width: none; /* Firefox */
 }
 
-/* Oculta la barra de scroll en Chrome, Safari y Edge para mantener la estética limpia */
 .grid-reseñas::-webkit-scrollbar {
-    display: none;
+    display: none; /* Chrome/Safari */
 }
 
-/* Estilos individuales de las tarjetas dentro del carrete */
+/* 
+   ¡SOLUCIÓN AQUÍ! 
+   Como tu JS inyecta bloques dinámicos directamente (h4, div, p), 
+   le damos las propiedades de "tarjeta" a cada elemento hijo directo del contenedor.
+*/
+.grid-reseñas > div, 
 .tarjeta-reseña {
-    flex: 0 0 calc(33.333% - 17px); /* Muestra exactamente 3 tarjetas en pantallas grandes */
-    min-width: 300px; /* Evita que se encojan demasiado en pantallas medianas */
-    background-color: var(--fondo);
+    flex: 0 0 calc(33.333% - 20px);
+    min-width: 300px;
+    background-color: var(--fondo); /* Fondo crema suave */
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(31, 58, 56, 0.03);
-    scroll-snap-align: start; /* Alinea la tarjeta perfectamente al deslizar */
-    transition: transform 0.3s ease;
+    box-shadow: 0 8px 20px rgba(31, 58, 56, 0.06); /* Sombra tridimensional */
+    border: 1px solid rgba(0, 188, 172, 0.05);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espaciado interno ordenado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.grid-reseñas > div:hover,
 .tarjeta-reseña:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 188, 172, 0.12);
 }
 
-.cargando-texto {
-    text-align: center;
+/* Estilos para los textos internos que vemos en la imagen */
+.grid-reseñas h3, 
+.grid-reseñas h4,
+.reseña-autor {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--texto);
+    margin-bottom: 2px;
+}
+
+/* Estrellas doradas */
+.grid-reseñas .estrellas,
+.grid-reseñas div:not([class]) { 
+    color: var(--secundario);
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* El comentario del usuario */
+.grid-reseñas p,
+.reseña-texto {
+    font-size: 14.5px;
     color: var(--texto-suave);
+    line-height: 1.6;
     font-style: italic;
-    width: 100%;
+    margin-top: 5px;
 }
 
+/* --- FORMULARIO DE NUEVA RESEÑA --- */
 .formulario-reseña-box {
     max-width: 600px;
     margin: 0 auto;
@@ -664,6 +696,8 @@ h2 {
     margin-bottom: 25px;
     text-align: center;
     font-size: 20px;
+    color: var(--texto);
+    font-weight: 700;
 }
 
 .input-grupo {
@@ -686,6 +720,7 @@ h2 {
 .input-grupo input:focus, .input-grupo select:focus, .input-grupo textarea:focus {
     border-color: var(--principal);
 }
+
 /* ==========================================================================
    8. SECCIÓN UBICACIÓN Y MAPA 
    ========================================================================== */
