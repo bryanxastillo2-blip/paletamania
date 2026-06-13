@@ -599,7 +599,7 @@ h2 {
 }
 
 /* ==========================================================================
-   7. SECCIÓN RESEÑAS
+   7. SECCIÓN RESEÑAS (RESTAURADO MODO CARRETE)
    ========================================================================== */
 .reseñas-container {
     padding: 80px 10%;
@@ -609,18 +609,46 @@ h2 {
 .contenedor-carrete {
     max-width: 1200px;
     margin: 0 auto 50px auto;
+    position: relative;
+    overflow: hidden; /* Evita que las tarjetas se salgan del contenedor principal */
 }
 
+/* CAMBIO CLAVE: De Grid Estático a Flex Horizontal Deslizante */
 .grid-reseñas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
     gap: 25px;
+    overflow-x: auto; /* Permite el deslizamiento horizontal */
+    scroll-snap-type: x mandatory; /* Hace que el deslizamiento sea magnético y suave */
+    padding: 20px 10px;
+    scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+}
+
+/* Oculta la barra de scroll en Chrome, Safari y Edge para mantener la estética limpia */
+.grid-reseñas::-webkit-scrollbar {
+    display: none;
+}
+
+/* Estilos individuales de las tarjetas dentro del carrete */
+.tarjeta-reseña {
+    flex: 0 0 calc(33.333% - 17px); /* Muestra exactamente 3 tarjetas en pantallas grandes */
+    min-width: 300px; /* Evita que se encojan demasiado en pantallas medianas */
+    background-color: var(--fondo);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(31, 58, 56, 0.03);
+    scroll-snap-align: start; /* Alinea la tarjeta perfectamente al deslizar */
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-reseña:hover {
+    transform: translateY(-5px);
 }
 
 .cargando-texto {
     text-align: center;
     color: var(--texto-suave);
     font-style: italic;
+    width: 100%;
 }
 
 .formulario-reseña-box {
@@ -658,7 +686,6 @@ h2 {
 .input-grupo input:focus, .input-grupo select:focus, .input-grupo textarea:focus {
     border-color: var(--principal);
 }
-
 /* ==========================================================================
    8. SECCIÓN UBICACIÓN Y MAPA 
    ========================================================================== */
