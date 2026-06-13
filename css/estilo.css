@@ -441,6 +441,79 @@ h2 {
     line-height: 1.7;
 }
 
+/* ==========================================================================
+   5.5 SECCIÓN STORYTELLING (VIDEOS EN CARRETE FLEX)
+   ========================================================================== */
+.historias-video-seccion {
+    padding: 80px 10%;
+    background-color: var(--tarjetas-bg); /* Fondo blanco para contrastar con el crema general */
+}
+
+.contenedor-videos-flex {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Espaciado unificado simétrico */
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    width: 100%;
+}
+
+.tarjeta-video {
+    flex: 1 1 calc(33.333% - 25px); /* Divide el espacio perfectamente en 3 columnas */
+    min-width: 300px; /* Evita colapsos en pantallas medianas */
+    background-color: var(--fondo); /* Fondo crema suave para la tarjeta */
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(31, 58, 56, 0.04);
+    border: 1px solid rgba(0, 188, 172, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-video:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 188, 172, 0.1);
+}
+
+/* Contenedor inteligente que mantiene la proporción 16:9 clásica de los videos */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    background-color: #000;
+}
+
+.video-wrapper video,
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover; /* Asegura que el video llene el contenedor estéticamente */
+}
+
+.video-info {
+    padding: 25px;
+    text-align: left;
+}
+
+.video-info h3 {
+    font-size: 20px;
+    color: var(--texto);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.video-info p {
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
 /* --- Sobre Nosotros --- */
 .sobre-nosotros {
     padding: 100px 10%;
@@ -809,7 +882,7 @@ footer .redes a:hover {
 }
 
 /* ==========================================================================
-   9. SECCIÓN RESPONSIVE (MEDIA QUERIES)
+   9. SECCIÓN RESPONSIVE (MEDIA QUERIES UNIFICADAS)
    ========================================================================== */
 @media (max-width: 992px) {
     header {
@@ -839,6 +912,21 @@ footer .redes a:hover {
     .hero h1 { font-size: 36px; }
     .hero p { font-size: 16px; }
     .hero-logo-center { height: 100px; }
+    
+    /* Responsivo para el carrete de Videos */
+    .contenedor-videos-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .tarjeta-video {
+        width: 100%;
+        max-width: 600px;
+    }
+    .video-info {
+        text-align: center;
+    }
+
     .nosotros-contenedor-flex {
         flex-direction: column-reverse;
         gap: 40px;
@@ -863,93 +951,4 @@ footer .redes a:hover {
     .tarjeta-comentario { flex: 0 0 280px; padding: 20px; }
     header nav { gap: 5px; }
     header nav a, .dropbtn { font-size: 13px; margin: 5px; }
-}
-
-/* ==========================================================================
-   5.5 SECCIÓN STORYTELLING (VIDEOS)
-   ========================================================================== */
-.historias-video-seccion {
-    padding: 80px 10%;
-    background-color: var(--tarjetas-bg); /* Fondo blanco para contrastar con el crema general */
-}
-
-.contenedor-videos-flex {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 40px auto 0 auto;
-    width: 100%;
-}
-
-.tarjeta-video {
-    flex: 1;
-    max-width: 550px;
-    background-color: var(--fondo); /* Fondo crema suave para la tarjeta */
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(31, 58, 56, 0.04);
-    border: 1px solid rgba(0, 188, 172, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tarjeta-video:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 188, 172, 0.1);
-}
-
-/* Contenedor inteligente que mantiene la proporción 16:9 clásica de los videos */
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-    height: 0;
-    background-color: #000;
-}
-
-.video-wrapper video,
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    object-fit: cover; /* Asegura que el video llene el contenedor estéticamente */
-}
-
-.video-info {
-    padding: 25px;
-    text-align: left;
-}
-
-.video-info h3 {
-    font-size: 20px;
-    color: var(--texto);
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.video-info p {
-    color: var(--texto-suave);
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* Integración con tus Media Queries existentes para móviles */
-@media (max-width: 992px) {
-    .contenedor-videos-flex {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-    
-    .tarjeta-video {
-        width: 100%;
-        max-width: 600px;
-    }
-    
-    .video-info {
-        text-align: center;
-    }
 }
